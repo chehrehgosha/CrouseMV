@@ -23,7 +23,7 @@ class Tool(object):
             self.secondQbox.setLayout(self.layout2)
             self.layout2.addWidget(QLabel("Name of the image where you want to search the pattern"))
             self.layout2.setStretch(0, 1)
-            self.TargetFile = QLineEdit()
+            self.TargetFile = QLineEdit('cluster.jpg')
             self.TargetFile.setObjectName('InputFile')
             self.layout2.addWidget(self.TargetFile)
             self.layout2.setStretch(1, 1)
@@ -56,21 +56,25 @@ class Tool(object):
             self.thirdQbox.setLayout(self.layout3)
             self.layout3.addWidget(QLabel("Output File Name:"))
             self.layout3.setStretch(0, 1)
-            self.OutputFile = QLineEdit()
+            self.OutputFile = QLineEdit('result.jpg')
             self.OutputFile.setObjectName('OutputFile')
             self.layout3.addWidget(self.OutputFile)
             self.layout3.setStretch(1, 1)
 
-            self.fourthQbox = QGroupBox("Pattern settings")
+            self.fourthQbox = QGroupBox("Angle settings")
             self.mainLayout.addWidget(self.fourthQbox)
             self.layout4 = QHBoxLayout()
             self.fourthQbox.setLayout(self.layout4)
-            self.layout4.addWidget(QLabel("Pattern Name:"))
+            self.layout4.addWidget(QLabel("Angle:"))
+            self.layout4.setStretch(0,1)
+            self.MinDegree = QLineEdit('50')
+            self.MinDegree.setObjectName('MinDegree')
+            self.layout4.addWidget(self.MinDegree)
             self.layout4.setStretch(0, 1)
-            self.LineName = QLineEdit()
-            self.LineName.setObjectName('LED Name')
-            self.layout4.addWidget(self.LineName)
-            self.layout4.setStretch(1, 1)
+            self.MaxDegree = QLineEdit('55')
+            self.MaxDegree.setObjectName('MaxDegree')
+            self.layout4.addWidget(self.MaxDegree)
+            self.layout4.setStretch(0,1)
 
             self.spacer = QSpacerItem(100, 100)
             self.mainLayout.addItem(self.spacer)
@@ -141,53 +145,54 @@ class Tool(object):
             self.acceptBtn.clicked.connect(self.toolModified)
             self.deleteBtn.clicked.connect(self.toolModified)
             self.LEDDetection.exec()
-
+        #TODO get yourself together
         elif status == 'run':
 
-            im = cv2.imread('temp/'+settings['input'])
+            im = cv2.imread('temp/' + settings['input'])
             self.MainMask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
 
-            temp = settings['region']
+            rect = settings['region'][0]
+            CircCoordinates = rect['coordinates']
+            cv2.circle(self.MainMask, CircCoordinates[0], CircCoordinates[1], (255, 255, 255), 1)
 
-            rect = temp[0]
-            RectCoordinates = rect['coordinates']
-            cv2.rectangle(self.MainMask, (RectCoordinates[0], RectCoordinates[1]),
-                          (RectCoordinates[2], RectCoordinates[3]), (255, 255, 255), -1)
-            # circle = temp[1]
+            rect = settings['region'][1]
+            CircCoordinates = rect['coordinates']
+            cv2.circle(self.MainMask, CircCoordinates[0], CircCoordinates[1], (255, 255, 255), 1)
 
-            RectCoordinates = rect['coordinates']
-            self.MainMask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
-            cv2.rectangle(self.MainMask,(RectCoordinates[0],RectCoordinates[1]),(RectCoordinates[2],RectCoordinates[3]),(255,255,255),-1)
-
-
-            # Apply template Matching
             gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
             edges = cv2.Canny(gray, 100, 200, apertureSize=3)
-            kernel = np.ones((5, 5), np.uint8)
-
+            # kernel = np.ones((5, 5), np.uint8)
 
             masked_data = cv2.bitwise_and(edges, edges, mask=self.MainMask)
-            cv2.imshow('daz',masked_data)
+            # cv2.dilate(masked_data, kernel, dst=masked_data, iterations=4)
+            # cv2.imshow('sad', masked_data)
+            # cv2.waitKey(0)
+            # cv2.erode(masked_data, kernel, dst=masked_data, iterations=4)
+            # cv2.imshow('sad', masked_data)
+            # cv2.waitKey(0)
+            im2, contours, hierarchy = cv2.findContours(masked_data, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            cv2.imshow('sad', im2)
             cv2.waitKey(0)
-            print(settings['line_length'])
-            lines = cv2.HoughLines(masked_data, 0, np.pi / 180, 100)
-            for x in lines:
-                for rho, theta in x:
-                    print(theta)
-                    a = np.cos(theta)
-                    b = np.sin(theta)
-                    x0 = a * rho
-                    y0 = b * rho
-                    x1 = int(x0 + 1000 * (-b))
-                    y1 = int(y0 + 1000 * (a))
-                    x2 = int(x0 - 1000 * (-b))
-                    y2 = int(y0 - 1000 * (a))
-
-                cv2.line(im, (x1, y1), (x2, y2), (0, 0, 255), 2)
+            cv2.drawContours(im, contours, -1, (255, 255, 255), 2)
+            # print(contours)
+            print('here')
+            # cv2.polylines(im,
+            #               contours,
+            #               isClosed=False,
+            #               color=(0, 255, 0),
+            #               thickness=3)
+            cv2.imshow('sad', im)
+            for contour1 in contours:
+                point1 = contour1[0][0].reshape(-1)
+                # print(point1)
+                for contour2 in contours:
+                    point2 = contour2[0][0].reshape(-1)
+                    angle = math.atan((point2[1] - point1[1]) / (point2[0] - point1[0]))
+                    if abs(math.degrees(angle))>int(settings['min_angle']) and abs(math.degrees(angle))<int(settings['max_angle']):
+                        print(abs(math.degrees(angle)))
             cv2.imwrite('temp/' + settings['output'], im)
             cv2.imwrite(resultPath, im)
-            self.report = '* * * * * * * * *\n PATTERN ' + settings[
-                'pattern_name'] + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
+            self.report = '* * * * * * * * *\n PATTERN '  + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
     # TODO modify according to new tool
     def toolModified(self):
         self.LEDDetection.close()
@@ -237,51 +242,11 @@ class Tool(object):
     def illuAccepted(self):
         self.AngleMeasurementTool.close()
         originArray = []
-        img = cv2.imread('temp/'+self.TargetFile.text())
+        # img = cv2.imread('temp/'+self.TargetFile.text())
         # if self.roiCheckBox.isChecked() is True:
         inspectorModule = regionInspector.regionInspector(originArray, 'temp/' + self.TargetFile.text(),
                                                           'AngleMeasurement')
         originArray = inspectorModule.getOriginArray()
-
-        im = cv2.imread('temp/' + self.TargetFile.text())
-        self.MainMask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
-
-        rect = originArray[0]
-        CircCoordinates = rect['coordinates']
-        cv2.circle(self.MainMask,CircCoordinates[0],CircCoordinates[1],(255,255,255),1)
-
-        rect = originArray[1]
-        CircCoordinates = rect['coordinates']
-        cv2.circle(self.MainMask, CircCoordinates[0], CircCoordinates[1], (255, 255, 255),1)
-
-        gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gray, 100, 200, apertureSize=3)
-        kernel = np.ones((5, 5), np.uint8)
-        cv2.dilate(edges, kernel, dst=edges, iterations=3)
-        cv2.erode(edges, kernel, dst=edges, iterations=4)
-        masked_data = cv2.bitwise_and(edges, edges, mask=self.MainMask)
-
-
-        cv2.imshow('sad',masked_data)
-        cv2.waitKey(0)
-        lines = cv2.HoughLines(masked_data,1, np.pi / 180, 1)
-        for x in lines:
-            for rho, theta in x:
-                print(theta)
-                a = np.cos(theta)
-                b = np.sin(theta)
-                x0 = a * rho
-                y0 = b * rho
-                x1 = int(x0 + 1000 * (-b))
-                y1 = int(y0 + 1000 * (a))
-                x2 = int(x0 - 1000 * (-b))
-                y2 = int(y0 - 1000 * (a))
-
-            cv2.line(im, (x1, y1), (x2, y2), (0, 0, 255), 2)
-        cv2.imshow('hello',im)
-        cv2.waitKey(0)
-
-
 
         if len(originArray) is not 0:
 
@@ -296,7 +261,8 @@ class Tool(object):
                                                   # 'HSVValues':self.Values,
                                                   'output':self.OutputFile.text(),
                                                   'input':self.TargetFile.text(),
-                                                  'pattern_name':self.LineName.text()})
+                                                  'min_angle':self.MinDegree.text(),
+                                                  'max_angle':self.MaxDegree.text()})
         else:
             globalVariables.toolsListText.append({'toolType': 'AngleMeasurementTool',
                                                   # 'illumination': str(illuPercent),

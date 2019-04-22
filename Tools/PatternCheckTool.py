@@ -158,7 +158,7 @@ class Tool(object):
 
             masked_data = cv2.bitwise_and(img, img, mask=self.MainMask)
             # Apply template Matching
-            res = cv2.matchTemplate(masked_data, template, cv2.TM_CCOEFF_NORMED)
+            res = cv2.matchTemplate(masked_data, template, cv2.TM_CCORR_NORMED)
 
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
@@ -232,6 +232,9 @@ class Tool(object):
         img = cv2.imread('temp/'+self.TargetFile.text())
         r = cv2.selectROI("Please select region of pattern",img)
         cv2.destroyWindow("Please select region of pattern")
+
+        #TODO How the selectROI returns:
+
         CheckRegion = [{"style":'rect',
                        'coordinates':[ int(r[0]),int(r[1]),int(r[0] + r[2]),int(r[1] + r[3])]}]
 

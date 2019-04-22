@@ -14,7 +14,8 @@ class addTool(object):
         self.fileSystemModel.setReadOnly(False)
         self.fileSystemModel.setNameFilters(["*.py"])
         self.fileSystemModel.setNameFilterDisables(False);
-        self.root = self.fileSystemModel.setRootPath('E:/KeyenceLikeProject/Tools')
+        #TODO change this accordingly
+        self.root = self.fileSystemModel.setRootPath('E:/CrouseRep/CrouseMV/Tools')
         self.toolSelector.treeView.setModel(self.fileSystemModel)
         self.toolSelector.treeView.setRootIndex(self.root)
         self.toolSelector.treeView.hideColumn(1)
