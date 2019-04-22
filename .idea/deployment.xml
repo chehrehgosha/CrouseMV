@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Version Control" uploadOnCheckin="38cb96da-a528-4ff1-bf14-f1be776c46e2">
+    <serverData>
+      <paths name="Version Control">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="Version Control" />
+  </component>
+</project>
