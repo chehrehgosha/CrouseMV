@@ -171,8 +171,8 @@ class Tool(object):
             # cv2.imshow('sad', masked_data)
             # cv2.waitKey(0)
             im2, contours, hierarchy = cv2.findContours(masked_data, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-            cv2.imshow('sad', im2)
-            cv2.waitKey(0)
+            # cv2.imshow('sad', im2)
+            # cv2.waitKey(0)
             cv2.drawContours(im, contours, -1, (255, 255, 255), 2)
             # print(contours)
             print('here')
@@ -181,7 +181,9 @@ class Tool(object):
             #               isClosed=False,
             #               color=(0, 255, 0),
             #               thickness=3)
-            cv2.imshow('sad', im)
+            # cv2.imshow('sad', im)
+            notFound = True
+            self.report = ''
             for contour1 in contours:
                 point1 = contour1[0][0].reshape(-1)
                 # print(point1)
@@ -189,10 +191,14 @@ class Tool(object):
                     point2 = contour2[0][0].reshape(-1)
                     angle = math.atan((point2[1] - point1[1]) / (point2[0] - point1[0]))
                     if abs(math.degrees(angle))>int(settings['min_angle']) and abs(math.degrees(angle))<int(settings['max_angle']):
-                        print(abs(math.degrees(angle)))
+                        # print(abs(math.degrees(angle)))
+                        self.report = self.report +'* * * * * * * * *\n Angle ' + str("{0:.2f}".format(abs(math.degrees(angle)))) + ' \nHAS BEEN FOUND\n\n\n* * * * * * * * *\n'
+                        notFound = False
+            if notFound is True:
+                self.report = '* * * * * * * * *\n ANGLE ' + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
             cv2.imwrite('temp/' + settings['output'], im)
             cv2.imwrite(resultPath, im)
-            self.report = '* * * * * * * * *\n PATTERN '  + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
+
     # TODO modify according to new tool
     def toolModified(self):
         self.LEDDetection.close()

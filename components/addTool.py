@@ -15,7 +15,8 @@ class addTool(object):
         self.fileSystemModel.setNameFilters(["*.py"])
         self.fileSystemModel.setNameFilterDisables(False);
         #TODO change this accordingly
-        self.root = self.fileSystemModel.setRootPath('E:/CrouseRep/CrouseMV/Tools')
+        self.root = self.fileSystemModel.setRootPath(os.path.join(os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir)),'/Tools/'))
+        # self.root = self.root + '/Tools/'
         self.toolSelector.treeView.setModel(self.fileSystemModel)
         self.toolSelector.treeView.setRootIndex(self.root)
         self.toolSelector.treeView.hideColumn(1)

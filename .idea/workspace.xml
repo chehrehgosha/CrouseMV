@@ -21,88 +21,85 @@
     <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5723816">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-641">
-                  <caret line="79" selection-start-line="79" selection-end-line="79" />
-                  <folding>
-                    <element signature="e#0#10#0" expanded="true" />
-                    <element signature="e#360#2865#0" />
-                    <element signature="e#1687#1714#0" />
-                    <element signature="e#4816#9767#0" />
-                    <element signature="e#7526#7548#0" />
-                    <element signature="e#8094#8120#0" />
-                    <element signature="e#9074#9119#0" />
-                    <element signature="e#10608#10615#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-188">
-                  <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
-                  <folding>
-                    <element signature="e#0#126#0" expanded="true" />
-                    <element signature="e#4121#6581#0" />
-                    <element signature="e#8622#11299#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/runEngine.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="596">
-                  <caret line="51" selection-start-line="51" selection-end-line="51" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
-                  <folding>
-                    <element signature="e#0#126#0" expanded="true" />
-                    <element signature="e#478#3997#0" />
-                    <element signature="e#4086#6546#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LEDDetection.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-187">
-                  <caret line="132" column="54" selection-start-line="132" selection-start-column="54" selection-end-line="132" selection-end-column="54" />
-                  <folding>
-                    <element signature="e#621#670#0" />
-                    <element signature="e#3304#5764#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-641">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#360#2865#0" />
+                <element signature="e#1687#1714#0" />
+                <element signature="e#4816#9767#0" />
+                <element signature="e#7526#7548#0" />
+                <element signature="e#8094#8120#0" />
+                <element signature="e#9074#9119#0" />
+                <element signature="e#10608#10615#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="194" column="77" selection-start-line="194" selection-start-column="77" selection-end-line="194" selection-end-column="77" />
+              <folding>
+                <element signature="e#0#126#0" expanded="true" />
+                <element signature="e#4121#6581#0" />
+                <element signature="e#8622#11299#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addTool.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/addTool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="17" column="121" selection-start-line="17" selection-start-column="121" selection-end-line="17" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/builtins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="5186" column="8" selection-start-line="5186" selection-start-column="8" selection-end-line="5186" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/runEngine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="596">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="177" column="44" lean-forward="true" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#126#0" expanded="true" />
+                <element signature="e#478#3997#0" />
+                <element signature="e#4086#6546#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -173,8 +170,8 @@
         <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
-        <option value="$PROJECT_DIR$/components/addTool.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
+        <option value="$PROJECT_DIR$/components/addTool.py" />
       </list>
     </option>
   </component>
@@ -406,7 +403,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.2598684" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.5595238" visible="true" weight="0.4002193" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.5595238" visible="true" weight="0.22478071" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10773809" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
@@ -450,9 +447,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/output.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/Jellyfish.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -616,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/addTool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/cv2/cv2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
@@ -634,18 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="153" column="8" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-            <element signature="e#478#3997#0" />
-            <element signature="e#4086#6546#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,15 +662,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="5186" column="8" selection-start-line="5186" selection-start-column="8" selection-end-line="5186" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="177" column="44" lean-forward="true" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+            <element signature="e#478#3997#0" />
+            <element signature="e#4086#6546#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-188">
-          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+        <state relative-caret-position="440">
+          <caret line="194" column="77" selection-start-line="194" selection-start-column="77" selection-end-line="194" selection-end-column="77" />
           <folding>
             <element signature="e#0#126#0" expanded="true" />
             <element signature="e#4121#6581#0" />
             <element signature="e#8622#11299#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/addTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="121" selection-start-line="17" selection-start-column="121" selection-end-line="17" selection-end-column="121" />
         </state>
       </provider>
     </entry>
