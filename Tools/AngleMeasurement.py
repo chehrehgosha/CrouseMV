@@ -67,11 +67,11 @@ class Tool(object):
             self.fourthQbox.setLayout(self.layout4)
             self.layout4.addWidget(QLabel("Angle:"))
             self.layout4.setStretch(0,1)
-            self.MinDegree = QLineEdit('50')
+            self.MinDegree = QLineEdit('-50')
             self.MinDegree.setObjectName('MinDegree')
             self.layout4.addWidget(self.MinDegree)
             self.layout4.setStretch(0, 1)
-            self.MaxDegree = QLineEdit('55')
+            self.MaxDegree = QLineEdit('-40')
             self.MaxDegree.setObjectName('MaxDegree')
             self.layout4.addWidget(self.MaxDegree)
             self.layout4.setStretch(0,1)
@@ -159,6 +159,7 @@ class Tool(object):
             CircCoordinates = rect['coordinates']
             cv2.circle(self.MainMask, CircCoordinates[0], CircCoordinates[1], (255, 255, 255), 1)
 
+
             gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
             edges = cv2.Canny(gray, 100, 200, apertureSize=3)
             # kernel = np.ones((5, 5), np.uint8)
@@ -183,17 +184,21 @@ class Tool(object):
             #               thickness=3)
             # cv2.imshow('sad', im)
             notFound = True
+            dist = 0
             self.report = ''
             for contour1 in contours:
                 point1 = contour1[0][0].reshape(-1)
                 # print(point1)
                 for contour2 in contours:
+                    # print('here you can see the point1:',point1)
                     point2 = contour2[0][0].reshape(-1)
-                    angle = math.atan((point2[1] - point1[1]) / (point2[0] - point1[0]))
-                    if abs(math.degrees(angle))>int(settings['min_angle']) and abs(math.degrees(angle))<int(settings['max_angle']):
-                        # print(abs(math.degrees(angle)))
-                        self.report = self.report +'* * * * * * * * *\n Angle ' + str("{0:.2f}".format(abs(math.degrees(angle)))) + ' \nHAS BEEN FOUND\n\n\n* * * * * * * * *\n'
-                        notFound = False
+                    # print('here you can see the point2:',point2)
+                    if point2[0] == point1[0]:
+                        continue
+                    angle = math.atan2((point2[1] - point1[1]) , (point2[0] - point1[0]))
+                    if math.degrees(angle) > int(settings['min_angle']) and math.degrees(angle) < int(settings['max_angle']):
+                            self.report = self.report +'* * * * * * * * *\n Angle ' + str("{0:.2f}".format(math.degrees(angle))) + ' \nHAS BEEN FOUND\n\n\n* * * * * * * * *\n'
+                            notFound = False
             if notFound is True:
                 self.report = '* * * * * * * * *\n ANGLE ' + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
             cv2.imwrite('temp/' + settings['output'], im)
