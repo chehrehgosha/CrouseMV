@@ -12,6 +12,8 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/KeyenceLikeProject$testt.coverage" NAME="testt Coverage Results" MODIFIED="1548827976943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/KeyenceLikeProject$testt__1_.coverage" NAME="testt (1) Coverage Results" MODIFIED="1550485908535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TEST" />
+    <SUITE FILE_PATH="coverage/CrouseMV$program.coverage" NAME="program Coverage Results" MODIFIED="1556090656620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CrouseMV$testt__1_.coverage" NAME="testt (1) Coverage Results" MODIFIED="1556090604466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TEST" />
     <SUITE FILE_PATH="coverage/KeyenceLikeProject$program.coverage" NAME="program Coverage Results" MODIFIED="1547623245427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/KeyenceLikeProject$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1550486313035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TEST" />
     <SUITE FILE_PATH="coverage/KeyenceLikeProject$CVI_KeywordLib.coverage" NAME="CVI_KeywordLib Coverage Results" MODIFIED="1546850636740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:/ATE_V3.0.2.3/root/ATE" />
@@ -65,8 +67,8 @@
       <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/runEngine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="201">
+              <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -74,16 +76,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="177" column="44" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
+            <state relative-caret-position="391">
+              <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
               <folding>
-                <element signature="e#0#126#0" expanded="true" />
-                <element signature="e#478#3997#0" />
+                <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#4086#6546#0" />
+                <element signature="e#8397#11074#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectDistance.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="154" column="67" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#4164#6629#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testt.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TEST/testt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toolsStructure.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/toolsStructure.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="68" selection-start-column="68" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -125,15 +158,16 @@
       <find>imwrite</find>
       <find>255</find>
       <find>sourceline</find>
-      <find>PatternCheckTool</find>
       <find>zeros</find>
       <find>houg</find>
       <find>regionin</find>
+      <find>PatternCheckTool</find>
     </findStrings>
     <replaceStrings>
       <replace>cv2</replace>
       <replace>ValueDialo</replace>
       <replace>AngleMeasurementTool</replace>
+      <replace>ObjectDistance</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\KeyenceLikeProject</dir>
@@ -152,15 +186,17 @@
         <option value="$PROJECT_DIR$/testt.py" />
         <option value="$PROJECT_DIR$/globalVariables.py" />
         <option value="$PROJECT_DIR$/program.py" />
-        <option value="$PROJECT_DIR$/components/runEngine.py" />
         <option value="$PROJECT_DIR$/Tools/AngleDetector.py" />
-        <option value="$PROJECT_DIR$/TEST/testt.py" />
         <option value="$PROJECT_DIR$/TEST/test.py" />
-        <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
         <option value="$PROJECT_DIR$/components/addTool.py" />
         <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
+        <option value="$PROJECT_DIR$/toolsStructure.txt" />
+        <option value="$PROJECT_DIR$/components/runEngine.py" />
+        <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
+        <option value="$PROJECT_DIR$/TEST/testt.py" />
+        <option value="$PROJECT_DIR$/Tools/ObjectDistance.py" />
       </list>
     </option>
   </component>
@@ -201,6 +237,11 @@
             <path>
               <item name="CrouseMV" type="b2602c69:ProjectViewProjectNode" />
               <item name="CrouseMV" type="462c0819:PsiDirectoryNode" />
+              <item name="TEST" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CrouseMV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CrouseMV" type="462c0819:PsiDirectoryNode" />
               <item name="Tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -210,7 +251,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="terminal&#9;ACTION&#9;ActivateTerminalToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="termina&#9;ACTION&#9;ActivateTerminalToolWindow&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="E:/KeyenceLikeProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -242,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RunManager" selected="Python.program">
     <configuration name="program" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="KeyenceLikeProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -347,11 +388,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.program" />
         <item itemvalue="Python.testt (1)" />
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.testt" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.program" />
       </list>
     </recent_temporary>
   </component>
@@ -385,7 +426,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.44047618" side_tool="true" weight="0.29934925" />
@@ -393,8 +433,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.2598684" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5595238" visible="true" weight="0.19846492" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10773809" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.5595238" visible="true" weight="0.34100878" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10773809" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.4577381" />
@@ -437,14 +477,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/Jellyfish.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/reslut.jpg" />
     <entry file="file://$PROJECT_DIR$/QtFiles/toolselector.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/toolsStructure.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/PyQt5/QtWidgets/QAbstractButton.py">
@@ -556,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/globalVariables.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/Aligner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
@@ -582,13 +609,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/temp/main.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TEST/testt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="90" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TEST/test.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -630,16 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/addTool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -664,10 +674,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/globalVariables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/toolsStructure.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="68" selection-start-column="68" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/runEngine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="201">
+          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -676,12 +710,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="177" column="44" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
+        <state relative-caret-position="391">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
           <folding>
-            <element signature="e#0#126#0" expanded="true" />
-            <element signature="e#478#3997#0" />
+            <element signature="e#0#13#0" expanded="true" />
             <element signature="e#4086#6546#0" />
+            <element signature="e#8397#11074#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TEST/testt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="154" column="67" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#4164#6629#0" />
           </folding>
         </state>
       </provider>

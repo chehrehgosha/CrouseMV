@@ -16,6 +16,7 @@ class runEngine():
                  reportFlag,
                  report,
                  status):
+        TemporaryVariables = {}
         if status=='main_run':
             report.value = ''
             for setting in toolsListText:
@@ -35,6 +36,8 @@ class runEngine():
                 cameraFlag.value = 1
                 reportFlag.value = 1
                 time.sleep(2)
+                # print(globalVariables.out1)
+            print(toolsListText)
         elif status=='pre_run':
             # toolsListText[0]['report']='ji'
             for setting in toolsListText:

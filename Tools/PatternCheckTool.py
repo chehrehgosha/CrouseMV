@@ -1,3 +1,6 @@
+import random
+import string
+
 from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
     QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit
 import cv2,os,globalVariables
@@ -22,7 +25,7 @@ class Tool(object):
             self.secondQbox.setLayout(self.layout2)
             self.layout2.addWidget(QLabel("Name of the image where you want to search the pattern"))
             self.layout2.setStretch(0, 1)
-            self.TargetFile = QLineEdit()
+            self.TargetFile = QLineEdit('lcd.jpg')
             self.TargetFile.setObjectName('InputFile')
             self.layout2.addWidget(self.TargetFile)
             self.layout2.setStretch(1, 1)
@@ -44,7 +47,7 @@ class Tool(object):
             self.Accuracy.setLayout(self.AccuracyLayout)
             self.AccuracyLayout.addWidget(QLabel("The threshold for the accurcay (-1 to +1):"))
             self.AccuracyLayout.setStretch(0, 1)
-            self.AccuracyLine = QLineEdit()
+            self.AccuracyLine = QLineEdit('0.7')
             self.AccuracyLine.setObjectName('InputFile')
             self.AccuracyLayout.addWidget(self.AccuracyLine)
             self.AccuracyLayout.setStretch(1, 1)
@@ -55,7 +58,7 @@ class Tool(object):
             self.thirdQbox.setLayout(self.layout3)
             self.layout3.addWidget(QLabel("Output File Name:"))
             self.layout3.setStretch(0, 1)
-            self.OutputFile = QLineEdit()
+            self.OutputFile = QLineEdit('result.jpg')
             self.OutputFile.setObjectName('OutputFile')
             self.layout3.addWidget(self.OutputFile)
             self.layout3.setStretch(1, 1)
@@ -66,7 +69,7 @@ class Tool(object):
             self.fourthQbox.setLayout(self.layout4)
             self.layout4.addWidget(QLabel("Pattern Name:"))
             self.layout4.setStretch(0, 1)
-            self.PatternName = QLineEdit()
+            self.PatternName = QLineEdit('p')
             self.PatternName.setObjectName('LED Name')
             self.layout4.addWidget(self.PatternName)
             self.layout4.setStretch(1, 1)
@@ -173,6 +176,10 @@ class Tool(object):
                 cv2.imwrite('temp/' + settings['output'], img)
                 cv2.imwrite(resultPath, img)
                 self.report =  '* * * * * * * * *\n PATTERN '  + settings['pattern_name']+ ' \nHAS BEEN FOUND \nWITH ACCURACY '+str(max_val)+'\n\n* * * * * * * * *\n'
+                self.out1 = top_left[0] + w/2
+                self.out2 = top_left[1] + h/2
+                ResultCode = 'globalVariables.'+ settings['pattern_name'] +' =[top_left[0] + w/2 , top_left[1] + h/2]'
+                exec(ResultCode)
             else:
                 cv2.imwrite('temp/' + settings['output'], img)
                 cv2.imwrite(resultPath, img)
