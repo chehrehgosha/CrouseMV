@@ -25,8 +25,8 @@
       <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="113" column="25" lean-forward="true" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+            <state relative-caret-position="935">
+              <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#360#2865#0" />
@@ -41,15 +41,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2394">
-              <caret line="199" column="125" lean-forward="true" selection-start-line="199" selection-start-column="125" selection-end-line="199" selection-end-column="125" />
+            <state relative-caret-position="1190">
+              <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
               <folding>
                 <element signature="e#0#126#0" expanded="true" />
-                <element signature="e#4335#6795#0" />
-                <element signature="e#9555#12232#0" />
               </folding>
             </state>
           </provider>
@@ -64,19 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/builtins.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="5186" column="8" selection-start-line="5186" selection-start-column="8" selection-end-line="5186" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/runEngine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="867">
               <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
@@ -85,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
+            <state relative-caret-position="680">
               <caret line="177" column="44" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
               <folding>
                 <element signature="e#0#126#0" expanded="true" />
@@ -167,10 +156,10 @@
         <option value="$PROJECT_DIR$/Tools/AngleDetector.py" />
         <option value="$PROJECT_DIR$/TEST/testt.py" />
         <option value="$PROJECT_DIR$/TEST/test.py" />
-        <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
         <option value="$PROJECT_DIR$/components/addTool.py" />
         <option value="$PROJECT_DIR$/components/regionInspector.py" />
+        <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
       </list>
     </option>
@@ -226,7 +215,7 @@
     <property name="last_opened_file_path" value="E:/KeyenceLikeProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -396,6 +385,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.44047618" side_tool="true" weight="0.29934925" />
@@ -403,8 +393,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.2598684" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.5595238" visible="true" weight="0.19846492" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10773809" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5595238" visible="true" weight="0.19846492" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10773809" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.4577381" />
@@ -621,39 +611,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="132" column="54" selection-start-line="132" selection-start-column="54" selection-end-line="132" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/runEngine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="177" column="44" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-            <element signature="e#478#3997#0" />
-            <element signature="e#4086#6546#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="5186" column="8" selection-start-line="5186" selection-start-column="8" selection-end-line="5186" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="361" column="58" selection-start-line="361" selection-start-column="45" selection-end-line="361" selection-end-column="58" />
+          <folding>
+            <element signature="e#478#2695#0" />
+            <element signature="e#2788#5248#0" />
+            <element signature="e#5292#18742#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -666,8 +649,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="113" column="25" lean-forward="true" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+        <state relative-caret-position="935">
+          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#360#2865#0" />
@@ -681,14 +664,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+    <entry file="file://$PROJECT_DIR$/components/runEngine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="199" column="125" lean-forward="true" selection-start-line="199" selection-start-column="125" selection-end-line="199" selection-end-column="125" />
+        <state relative-caret-position="867">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="177" column="44" selection-start-line="176" selection-start-column="16" selection-end-line="177" selection-end-column="44" />
           <folding>
             <element signature="e#0#126#0" expanded="true" />
-            <element signature="e#4335#6795#0" />
-            <element signature="e#9555#12232#0" />
+            <element signature="e#478#3997#0" />
+            <element signature="e#4086#6546#0" />
           </folding>
         </state>
       </provider>

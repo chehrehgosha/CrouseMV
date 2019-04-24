@@ -15,16 +15,6 @@ class Tool(object):
             self.LEDDetection = QDialog()
             self.mainLayout = QVBoxLayout()
             self.LEDDetection.setLayout(self.mainLayout)
-            # self.firstQbox = QGroupBox("Criteria settings")
-            # self.mainLayout.addWidget(self.firstQbox)
-            # self.layout1 = QHBoxLayout()
-            # self.firstQbox.setLayout(self.layout1)
-            # self.layout1.addWidget(QLabel("Illumination Percent (0 - 1):"))
-            # self.layout1.setStretch(0, 1)
-            # self.qLine = QLineEdit()
-            # self.qLine.setObjectName('qline')
-            # self.layout1.addWidget(self.qLine)
-            # self.layout1.setStretch(1, 1)
 
             self.secondQbox = QGroupBox("Input settings")
             self.mainLayout.addWidget(self.secondQbox)
@@ -132,10 +122,7 @@ class Tool(object):
         elif status == 'run':
             im = cv2.imread('temp/'+settings['input'])
             imgray = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
-            # cv2.imshow('hello', imgray)
-            # cv2.waitKey(0)
-            # cv2.imshow('x', imgray)
-            # cv2.waitKey(0)
+
             found = 0
             self.MainMask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
             if settings['inspection'] is True:
