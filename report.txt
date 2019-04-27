@@ -1,0 +1,6 @@
+* * * * * * * * *
+ PATTERN p 
+HAS BEEN FOUND 
+WITH ACCURACY 0.9011532664299011
+
+* * * * * * * * *

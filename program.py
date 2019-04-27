@@ -1,10 +1,11 @@
 import sys
 import PyQt5
-from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog,QDialog
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QTimer,QSize,Qt
 from components.addTool import addTool
 from QtFiles.mainwindow import Ui_MainWindow
+from QtFiles.runscreen import Ui_Dialog as Ui_RunMode
 from components.runEngine import runEngine
 from multiprocessing import Process, Manager
 import importlib.util
@@ -22,6 +23,7 @@ class Application():
         self.UI.addTool.clicked.connect(self.addTool_clicked)
         self.UI.LoadProgramButton.clicked.connect(self.load_program)
         self.UI.SaveProgramButton.clicked.connect(self.save_program)
+        self.UI.RunMode.clicked.connect(self.run_mode)
 
 
         self.window.show()
@@ -40,6 +42,15 @@ class Application():
         self.TestExecutionTimer.start(1000)
 
         sys.exit(self.app.exec_())
+    def run_mode(self):
+        self.RunModeDialog = QDialog()
+        self.RunModeDialogUI = Ui_RunMode()
+        self.RunModeDialogUI.setupUi(self.RunModeDialog)
+
+        self.RunModeDialogUI.SetupMode.clicked.connect(self.setup_mode)
+        self.RunModeDialog.exec()
+    def setup_mode(self):
+        self.RunModeDialog.close()
 
     def runButton_clicked(self):
         toolRunnerInstance = Process(target=runEngine,args=(globalVariables.toolsListText,
@@ -54,7 +65,7 @@ class Application():
         dlg = QFileDialog()
         dlg.setFileMode(QFileDialog.AnyFile)
         dlg.setNameFilters(["Text files (*.txt)"])
-        dlg.selectNameFilter("Images (*.png *.jpg)")
+        dlg.selectNameFilter("Text files (*.txt)")
         # filenames = []
 
         if dlg.exec_():

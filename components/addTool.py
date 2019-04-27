@@ -4,6 +4,7 @@ from QtFiles.toolselector import Ui_Dialog
 import os
 import sys
 import importlib.util
+# import Tools.ObjectDistance
 
 class addTool(object):
     def __init__(self):

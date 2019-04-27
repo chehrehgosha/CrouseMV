@@ -1,2 +1,2 @@
-x ={'a':'1'}
-print(eval('x[\'a\']'))
+with open("test/hello.txt", "w") as file:
+    file.write("salam")

@@ -147,7 +147,9 @@ class Tool(object):
         elif status == 'run':
 
             img = cv2.imread('temp/'+settings['input'])
+            # img =  cv2.imread('temp/rotatedp.jpg')
             template = cv2.imread('temp/'+settings['pattern_name']+'.jpg')
+            # template = cv2.imread('temp/rotatedp.jpg')
             w, h = template.shape[1],template.shape[0]
 
             temp = settings['region']
