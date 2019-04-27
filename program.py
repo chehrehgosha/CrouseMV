@@ -1,6 +1,6 @@
 import sys
 import PyQt5
-from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QTimer,QSize,Qt
 from components.addTool import addTool
@@ -9,6 +9,7 @@ from components.runEngine import runEngine
 from multiprocessing import Process, Manager
 import importlib.util
 import globalVariables
+import pickle
 
 class Application():
     def __init__(self):
@@ -19,6 +20,9 @@ class Application():
 
         self.UI.runButton.clicked.connect(self.runButton_clicked)
         self.UI.addTool.clicked.connect(self.addTool_clicked)
+        self.UI.LoadProgramButton.clicked.connect(self.load_program)
+        self.UI.SaveProgramButton.clicked.connect(self.save_program)
+
 
         self.window.show()
 
@@ -46,7 +50,31 @@ class Application():
                                                             globalVariables.report,
                                                             'main_run'))
         toolRunnerInstance.start()
+    def load_program(self):
+        dlg = QFileDialog()
+        dlg.setFileMode(QFileDialog.AnyFile)
+        dlg.setNameFilters(["Text files (*.txt)"])
+        dlg.selectNameFilter("Images (*.png *.jpg)")
+        # filenames = []
 
+        if dlg.exec_():
+            filenames = dlg.selectedFiles()
+            f = open(filenames[0], 'r')
+
+            with f:
+                globalVariables.toolsListText = eval(f.readline())
+        # with open(self.UI.ProgramName.text()+".txt", "r") as file:
+        #     globalVariables.toolsListText = eval(file.readline())
+        globalVariables.timeLineFlag.value = 1
+        return
+    def save_program(self):
+        program_name = self.UI.ProgramName.text()
+        # with open(program_name+'.txt', 'w') as f:
+        #     for item in globalVariables.toolsListText:
+        #         f.write("%s\n" % item)
+        with open(program_name+".txt", "w") as file:
+            file.write(str(globalVariables.toolsListText))
+        return
     def GUIrenderer(self):
         if globalVariables.timeLineFlag.value == 1:
             print(globalVariables.toolsListText)

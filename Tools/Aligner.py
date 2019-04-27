@@ -1,12 +1,8 @@
 from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
-    QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit,\
-    QRadioButton, QButtonGroup,QWidget
-from PyQt5.QtCore import QSignalMapper,QSize
-import cv2,math,os,globalVariables
+    QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit
+import cv2,os,globalVariables
 from components import regionInspector
 import numpy as np
-
-import pprint
 class Tool(object):
     def __init__(self,
                  settings = None,

@@ -98,11 +98,17 @@
     <widget class="QLabel" name="cameraLabel">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>34</y>
+       <x>19</x>
+       <y>30</y>
        <width>540</width>
-       <height>401</height>
+       <height>405</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>405</height>
+      </size>
      </property>
      <property name="maximumSize">
       <size>
@@ -136,7 +142,7 @@
     <widget class="QPushButton" name="addTool">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>40</x>
        <y>40</y>
        <width>65</width>
        <height>50</height>
@@ -193,26 +199,6 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>40</y>
-       <width>65</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>65</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Position
- Adj.</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
@@ -229,7 +215,7 @@
     <property name="title">
      <string>Program</string>
     </property>
-    <widget class="QPushButton" name="pushButton_9">
+    <widget class="QPushButton" name="SaveProgramButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -248,7 +234,7 @@
       <string>Save</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_10">
+    <widget class="QPushButton" name="LoadProgramButton">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -264,39 +250,32 @@
       </size>
      </property>
      <property name="text">
-      <string>Run</string>
+      <string>Load</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QTableWidget" name="tableWidget">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>220</y>
-      <width>331</width>
-      <height>361</height>
-     </rect>
-    </property>
-    <row>
-     <property name="text">
-      <string>Area</string>
+    <widget class="QPlainTextEdit" name="ProgramName">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>30</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
      </property>
-    </row>
-    <column>
-     <property name="text">
-      <string>Measure</string>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>40</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
      </property>
-    </column>
-    <column>
      <property name="text">
-      <string>Lower </string>
+      <string>Program Name:</string>
      </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Upper</string>
-     </property>
-    </column>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_5">
     <property name="geometry">
@@ -369,6 +348,54 @@
      <property name="text">
       <string>Output</string>
      </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_6">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>220</y>
+      <width>331</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <widget class="QScrollArea" name="scrollArea_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>301</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>299</width>
+        <height>329</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="Report_Label">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>

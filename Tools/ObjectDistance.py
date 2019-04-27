@@ -1,11 +1,8 @@
-import random
-import string
 import math
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QPushButton, \
     QSpacerItem, QGroupBox, QLabel, QCheckBox, QHBoxLayout, QLineEdit
-import cv2, os, globalVariables
-from components import regionInspector
-import numpy as np
+import  os, globalVariables
+
 
 
 class Tool(object):
