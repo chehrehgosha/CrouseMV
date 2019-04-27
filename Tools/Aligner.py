@@ -171,6 +171,7 @@ class Tool(object):
                 cv2.imwrite('temp/' + settings['output'], im1Reg)
                 cv2.imwrite(resultPath, im1Reg)
                 globalVariables.cameraScreenFlag = 1
+                self.report = 'Whihooo'
             else:
 
                 im1 = cv2.imread('temp/'+settings['input'], cv2.IMREAD_COLOR)
@@ -216,6 +217,7 @@ class Tool(object):
                 cv2.imwrite('temp/'+settings['output'], im1Reg)
                 cv2.imwrite(resultPath, im1Reg)
                 globalVariables.cameraScreenFlag = 1
+                self.report = 'Whihooo'
 
     # TODO modify according to input/output
     def toolModified(self):
@@ -256,7 +258,7 @@ class Tool(object):
         self.Aligner.close()
         originArray = []
         if self.roiCheckBox.isChecked() is True:
-            inspectorModule = regionInspector.regionInspector(originArray,'temp/'+self.RefImg.text())
+            inspectorModule = regionInspector.regionInspector(originArray,'temp/'+self.RefImg.text(),'Aligner')
             originArray = inspectorModule.getOriginArray()
         if len(originArray) is not 0:
 

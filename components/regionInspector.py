@@ -113,6 +113,15 @@ class regionInspector(object):
                     self.inspectionDialog.close()
                     break
 
+        if self.Module is 'Aligner':
+            img = cv2.imread(InspectionSource)
+            r = cv2.selectROI("Please select region of pattern", img)
+            cv2.destroyWindow("Please select region of pattern")
+
+            # TODO How the selectROI returns:
+
+            self.originArray = [{"style": 'rect',
+                            'coordinates': [int(r[0]), int(r[1]), int(r[0] + r[2]), int(r[1] + r[3])]}]
     def draw_circle(self,event, x, y, flags, param):
         if self.Module is 'LedDetector':
             X = True
@@ -234,6 +243,7 @@ class regionInspector(object):
                 # else:
                 #     cv2.rectangle(overlay, (self.ix, self.iy), (x, y), (0, 255, 0), 4)
                 #     cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
+
 
     def getOriginArray(self):
         return self.originArray

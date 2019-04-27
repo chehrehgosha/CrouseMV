@@ -24,140 +24,133 @@
     <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="addTool.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/addTool.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="269">
-                  <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#0#52#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LEDDetection.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="628">
-                  <caret line="361" column="58" selection-start-line="361" selection-start-column="45" selection-end-line="361" selection-end-column="58" />
-                  <folding>
-                    <element signature="e#0#126#0" expanded="true" />
-                    <element signature="e#478#2695#0" />
-                    <element signature="e#2788#5248#0" />
-                    <element signature="e#5292#18742#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ObjectDistance.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="628">
-                  <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="479">
-                  <caret line="178" selection-start-line="178" selection-end-line="178" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="testt.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TEST/testt.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/runEngine.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="203">
-                  <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ScriptEngine.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ScriptEngine.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="program.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/program.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="492">
-                  <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#0#10#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mainwindow.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file leaf-file-name="ali.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ali.txt">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#126#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="35">
+              <caret line="128" column="35" lean-forward="true" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#1687#1714#0" />
+                <element signature="e#2925#4708#0" />
+                <element signature="e#7526#7548#0" />
+                <element signature="e#8094#8120#0" />
+                <element signature="e#9074#9119#0" />
+                <element signature="e#9827#11763#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/program.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="866">
+              <caret line="136" column="38" lean-forward="true" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Aligner.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/Aligner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="259" column="109" selection-start-line="259" selection-start-column="109" selection-end-line="259" selection-end-column="109" />
+              <folding>
+                <element signature="e#2739#5196#0" />
+                <element signature="e#10056#12024#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addTool.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/addTool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LEDDetection.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="628">
+              <caret line="361" column="58" selection-start-line="361" selection-start-column="45" selection-end-line="361" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#126#0" expanded="true" />
+                <element signature="e#478#2695#0" />
+                <element signature="e#2788#5248#0" />
+                <element signature="e#5292#18742#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/runEngine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectDistance.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="628">
+              <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="247" column="95" lean-forward="true" selection-start-line="240" selection-start-column="8" selection-end-line="247" selection-end-column="95" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#8699#11376#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testt.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TEST/testt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -220,13 +213,11 @@
         <option value="$PROJECT_DIR$/testt.py" />
         <option value="$PROJECT_DIR$/globalVariables.py" />
         <option value="$PROJECT_DIR$/Tools/AngleDetector.py" />
-        <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
         <option value="$PROJECT_DIR$/toolsStructure.txt" />
         <option value="$PROJECT_DIR$/components/runEngine.py" />
         <option value="$PROJECT_DIR$/Tools/ObjectDistance.py" />
-        <option value="$PROJECT_DIR$/Tools/Aligner.py" />
         <option value="$PROJECT_DIR$/components/addTool.py" />
         <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
         <option value="$PROJECT_DIR$/TEST/testt.py" />
@@ -235,6 +226,8 @@
         <option value="$PROJECT_DIR$/QtFiles/mainwindow.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/program.py" />
+        <option value="$PROJECT_DIR$/components/regionInspector.py" />
+        <option value="$PROJECT_DIR$/Tools/Aligner.py" />
       </list>
     </option>
   </component>
@@ -286,6 +279,11 @@
               <item name="CrouseMV" type="b2602c69:ProjectViewProjectNode" />
               <item name="CrouseMV" type="462c0819:PsiDirectoryNode" />
               <item name="TEST" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CrouseMV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CrouseMV" type="462c0819:PsiDirectoryNode" />
+              <item name="Tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CrouseMV" type="b2602c69:ProjectViewProjectNode" />
@@ -490,7 +488,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.25984251" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.2272216" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.33970752" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1717604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
@@ -530,7 +528,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="32" />
+      <option name="time" value="33" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -643,33 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/Aligner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/toolsStructure.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="68" selection-start-column="68" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#360#2865#0" />
-            <element signature="e#1687#1714#0" />
-            <element signature="e#4816#9767#0" />
-            <element signature="e#7526#7548#0" />
-            <element signature="e#8094#8120#0" />
-            <element signature="e#9074#9119#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -800,6 +775,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/results/result.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScriptEngine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ali.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -810,48 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/runEngine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/result.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ali.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScriptEngine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -859,12 +814,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/runEngine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
+        <state relative-caret-position="866">
+          <caret line="136" column="38" lean-forward="true" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="247" column="95" lean-forward="true" selection-start-line="240" selection-start-column="8" selection-end-line="247" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#8699#11376#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="128" column="35" lean-forward="true" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#1687#1714#0" />
+            <element signature="e#2925#4708#0" />
+            <element signature="e#7526#7548#0" />
+            <element signature="e#8094#8120#0" />
+            <element signature="e#9074#9119#0" />
+            <element signature="e#9827#11763#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/Aligner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="259" column="109" selection-start-line="259" selection-start-column="109" selection-end-line="259" selection-end-column="109" />
+          <folding>
+            <element signature="e#2739#5196#0" />
+            <element signature="e#10056#12024#0" />
           </folding>
         </state>
       </provider>
