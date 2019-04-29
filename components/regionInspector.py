@@ -12,9 +12,10 @@ class regionInspector(object):
             self.originArray = originArray
             self.drawing = False  # true if mouse is pressed
             self.ix, self.iy = -1, -1
+            self.mode = True
 
-
-            self.img = cv2.imread(InspectionSource)
+            self.img = cv2.imread(InspectionSource, 1)
+            self.img2 = self.img.copy()
             cv2.namedWindow('image', 0)
 
             cv2.setMouseCallback('image', self.draw_circle)
@@ -48,7 +49,7 @@ class regionInspector(object):
 
             self.inspectionDialog.show()
             while (1):
-                cv2.imshow('image', self.img)
+                cv2.imshow('image', self.img2)
 
                 k = cv2.waitKey(1) & 0xFF
                 if cv2.getWindowProperty('image',0)== -1:
@@ -61,6 +62,7 @@ class regionInspector(object):
                     cv2.destroyWindow('image')
                     cv2.namedWindow('image', 0)
                     self.img = cv2.imread(InspectionSource)
+                    self.img2 = self.img.copy()
                     cv2.setMouseCallback('image', self.draw_circle)
                     self.originArray = []
                     self.rectRadio.setChecked(True)
@@ -124,32 +126,34 @@ class regionInspector(object):
                             'coordinates': [int(r[0]), int(r[1]), int(r[0] + r[2]), int(r[1] + r[3])]}]
     def draw_circle(self,event, x, y, flags, param):
         if self.Module is 'LedDetector':
-            X = True
+            overlay = self.img.copy()
+            output = self.img.copy()
+            alpha = 0.5
             if event == cv2.EVENT_LBUTTONDOWN:
                 self.drawing = True
                 self.ix, self.iy = x, y
                 self.RectNow = True
                 X= False
-            # elif event == cv2.EVENT_MOUSEMOVE:
-            #     if X == True:
-            #         HSVImg = cv2.cvtColor(self.img, cv2.COLOR_BGR2HSV)
-            #         pixel = HSVImg[y][x]
-            #         meanHSV = cv2.split(pixel)
-            #
-            #         # print(Hmean)
-            #         # print(Smean)
-            #         # print(Vmean)
-            #         # print(meanHSV)
-            #         # print(s)
-            #         # print(meanHSV)
-            #         self.HueLabelc.setText("Hue Value for inspected Region is: " + str(meanHSV[0][0]))
-            #         self.SatLabelc.setText("Saturation Value for inspected Region is: " + str(meanHSV[0][1]))
-            #         self.ValLabelc.setText("Illumination Value for inspected Region is: " + str(meanHSV[0][2]))
+            elif event == cv2.EVENT_MOUSEMOVE:
+                if self.drawing == True:
+                    if self.mode == True:
+                        if self.rectRadio.isChecked() is True:
+                            cv2.rectangle(overlay, (self.ix, self.iy),
+                                          (x,y), (0, 0, 255), 2)
+                            cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
+                            cv2.imshow('image', self.img2)
+                        if self.circRadio.isChecked() is True:
+                            cv2.circle(overlay, (self.ix, self.iy),
+                                       int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
+                            cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
+                            cv2.imshow('image', self.img2)
             elif event == cv2.EVENT_LBUTTONUP:
                 if self.drawing == True:
                     if self.rectRadio.isChecked() is True:
                         if self.RectNow is True:
-                            cv2.rectangle(self.img, (self.ix, self.iy), (x, y), (0, 255, 0), 2)
+                            cv2.rectangle(overlay, (self.ix, self.iy),
+                                       (x,y), (0, 0, 255), 2)
+                            cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
                             # param[0] = True
                             self.originArray.append({'style': 'rect',
                                              'coordinates': [self.ix, self.iy, x, y]})
@@ -201,11 +205,9 @@ class regionInspector(object):
                             # self.originArray.append({'style': 'circle',
                             #                  'coordinates': [(self.ix + x) / 2, (self.iy + y) / 2,
                             #                                  math.sqrt(((self.ix - x) ** 2) + ((self.iy - y) ** 2)) / 2]})
-                            cv2.circle(self.img,
-                                       (int((self.ix + x) / 2), int((self.iy + y) / 2)),
-                                       int(math.sqrt(((self.ix - x) ** 2) + ((self.iy - y) ** 2)) / 2),
-                                       (0, 0, 255),
-                                       2)
+                            cv2.circle(overlay, (self.ix, self.iy),
+                                       int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
+                            cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
                             self.CircNow = False
                 self.drawing = False
 
@@ -214,7 +216,7 @@ class regionInspector(object):
             overlay = self.img.copy()
             output = self.img.copy()
             alpha = 0.5
-
+            #ACK Here the region of inspection is dynamically resizable
             if event == cv2.EVENT_LBUTTONDOWN:
                 self.drawing = True
                 self.ix, self.iy = x, y
@@ -222,8 +224,8 @@ class regionInspector(object):
             elif event == cv2.EVENT_MOUSEMOVE:
                 if self.drawing == True:
                     if self.mode == True:
-                        cv2.circle(overlay, (int((x + self.ix) / 2), int((y + self.iy) / 2)),
-                                   int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2) / 2.8), (0, 0, 255), 1)
+                        cv2.circle(overlay, (self.ix, self.iy),
+                                   int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
                         cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
                         cv2.imshow('image', self.img2)
                     # else:
@@ -234,8 +236,8 @@ class regionInspector(object):
             elif event == cv2.EVENT_LBUTTONUP:
                 self.drawing = False
                 if self.mode == True:
-                    cv2.circle(overlay, (int((x + self.ix) / 2), int((y + self.iy) / 2)),
-                               int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2) / 2.8), (0, 0, 255), 1)
+                    cv2.circle(overlay, (self.ix, self.iy),
+                               int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
                     cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
                     self.originArray.append({'style': 'circle',
                                              'coordinates': [(int((x + self.ix) / 2), int((y + self.iy) / 2)),

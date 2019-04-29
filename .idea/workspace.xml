@@ -24,19 +24,18 @@
     <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43567052">
+    <splitter split-orientation="horizontal" split-proportion="0.45958278">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="116" column="45" selection-start-line="116" selection-start-column="45" selection-end-line="116" selection-end-column="45" />
+                <state relative-caret-position="459">
+                  <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
-                    <element signature="e#360#2865#0" />
                     <element signature="e#1687#1714#0" />
-                    <element signature="e#2925#4708#0" />
+                    <element signature="e#4759#5130#0" />
                   </folding>
                 </state>
               </provider>
@@ -51,11 +50,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/components/runEngine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+                <state relative-caret-position="125">
+                  <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#22#0" expanded="true" />
                   </folding>
@@ -67,6 +66,21 @@
       </split-first>
       <split-second>
         <leaf>
+          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="425">
+                  <caret line="106" column="20" lean-forward="true" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="47" />
+                  <folding>
+                    <element signature="e#0#10#0" expanded="true" />
+                    <element signature="e#360#2865#0" />
+                    <element signature="e#1687#1714#0" />
+                    <element signature="e#4759#5130#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="globalVariables.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/globalVariables.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -76,17 +90,43 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="program.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/program.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="143">
-                  <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
+                  <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
                     <element signature="e#1931#2169#0" />
                     <element signature="e#2204#2230#0" />
                     <element signature="e#2942#3529#0" />
                     <element signature="e#3566#3884#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+                  <folding>
+                    <element signature="e#0#126#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LEDDetection.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="374">
+                  <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+                  <folding>
+                    <element signature="e#0#126#0" expanded="true" />
+                    <element signature="e#2788#5248#0" />
+                    <element signature="e#5292#18742#0" />
                   </folding>
                 </state>
               </provider>
@@ -156,7 +196,6 @@
         <option value="$PROJECT_DIR$/addTool.py" />
         <option value="$PROJECT_DIR$/testt.py" />
         <option value="$PROJECT_DIR$/Tools/AngleDetector.py" />
-        <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
         <option value="$PROJECT_DIR$/toolsStructure.txt" />
         <option value="$PROJECT_DIR$/Tools/ObjectDistance.py" />
@@ -167,11 +206,12 @@
         <option value="$PROJECT_DIR$/ScriptEngine.py" />
         <option value="$PROJECT_DIR$/QtFiles/mainwindow.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/Aligner.py" />
         <option value="$PROJECT_DIR$/globalVariables.py" />
         <option value="$PROJECT_DIR$/program.py" />
         <option value="$PROJECT_DIR$/components/runEngine.py" />
+        <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
+        <option value="$PROJECT_DIR$/components/regionInspector.py" />
       </list>
     </option>
   </component>
@@ -423,8 +463,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.25984251" />
-      <window_info active="true" anchor="bottom" x="-38" y="379" width="1679" height="252" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.26264802" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10207824" />
+      <window_info active="true" anchor="bottom" x="-38" y="379" width="1679" height="252" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.20775028" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06234719" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.4577381" />
@@ -639,19 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="361" column="58" selection-start-line="361" selection-start-column="45" selection-end-line="361" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-            <element signature="e#478#2695#0" />
-            <element signature="e#2788#5248#0" />
-            <element signature="e#5292#18742#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://Python/Tools.ObjectDistance.Tool">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -729,13 +756,6 @@
     <entry file="file://$PROJECT_DIR$/ali.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -749,19 +769,6 @@
           <caret line="247" column="95" lean-forward="true" selection-start-line="240" selection-start-column="8" selection-end-line="247" selection-end-column="95" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="116" column="45" selection-start-line="116" selection-start-column="45" selection-end-line="116" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#360#2865#0" />
-            <element signature="e#1687#1714#0" />
-            <element signature="e#2925#4708#0" />
           </folding>
         </state>
       </provider>
@@ -786,7 +793,7 @@
     <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
-          <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
+          <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1931#2169#0" />
@@ -797,12 +804,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/runEngine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        <state relative-caret-position="125">
+          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+            <element signature="e#2788#5248#0" />
+            <element signature="e#5292#18742#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#1687#1714#0" />
+            <element signature="e#4759#5130#0" />
           </folding>
         </state>
       </provider>
