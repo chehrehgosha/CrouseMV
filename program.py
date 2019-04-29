@@ -37,6 +37,8 @@ class Application():
         globalVariables.reportFlag = self.manager.Value(value=0, typecode=int)
         globalVariables.sourcePath = self.manager.Value(value='images/BackLightImg.jpg', typecode=str)
         globalVariables.resultPath = self.manager.Value(value='images/result.jpg', typecode=str)
+        globalVariables.ChangeColorIndex = self.manager.Value(value=0, typecode=int)
+        globalVariables.ChangeColorFlag = self.manager.Value(value=0, typecode=int)
         self.TestExecutionTimer = QTimer()
         self.TestExecutionTimer.timeout.connect(self.GUIrenderer)
         self.TestExecutionTimer.start(1000)
@@ -59,6 +61,8 @@ class Application():
                                                             globalVariables.sourcePath,
                                                             globalVariables.reportFlag,
                                                             globalVariables.report,
+                                                            globalVariables.ChangeColorFlag,
+                                                            globalVariables.ChangeColorIndex,
                                                             'main_run'))
         toolRunnerInstance.start()
     def load_program(self):
@@ -87,6 +91,16 @@ class Application():
             file.write(str(globalVariables.toolsListText))
         return
     def GUIrenderer(self):
+        if globalVariables.ChangeColorFlag.value != 0:
+            if globalVariables.ChangeColorFlag.value == 1:
+                item = self.UI.horizontalLayout.itemAt(globalVariables.ChangeColorIndex.value)
+                item = item.widget()
+                item.setStyleSheet("background-color: #9af280;")
+            elif globalVariables.ChangeColorFlag.value == -1:
+                item = self.UI.horizontalLayout.itemAt(globalVariables.ChangeColorIndex.value)
+                item = item.widget()
+                item.setStyleSheet("background-color: #fc483f;")
+            globalVariables.ChangeColorFlag.value = 0
         if globalVariables.timeLineFlag.value == 1:
             print(globalVariables.toolsListText)
             toolRunnerInstance = Process(target=runEngine, args=(globalVariables.toolsListText,
@@ -95,6 +109,8 @@ class Application():
                                                                  globalVariables.sourcePath,
                                                                  globalVariables.reportFlag,
                                                                  globalVariables.report,
+                                                                 globalVariables.ChangeColorFlag,
+                                                                 globalVariables.ChangeColorIndex,
                                                                  'pre_run'))
             toolRunnerInstance.start()
             while isinstance(self.UI.horizontalLayout.itemAt(0), PyQt5.QtWidgets.QWidgetItem):
@@ -111,6 +127,7 @@ class Application():
                 newButton.clicked.connect(self.timeLineClicked)
                 newButton.setMinimumSize(QSize(65, 50))
                 self.UI.horizontalLayout.insertWidget(globalVariables.toolsListIndex.value,newButton)
+                # newButton.setStyleSheet('box-shadow: 5px 10px;')
                 globalVariables.toolsListIndex.value = globalVariables.toolsListIndex.value + 1
                 globalVariables.timeLineFlag.value = 0
             # print(globalVariables.toolsListText)

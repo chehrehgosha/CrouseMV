@@ -15,11 +15,14 @@ class runEngine():
                  sourcePath,
                  reportFlag,
                  report,
+                 ChangeColorFlag,
+                 ChangeColorIndex,
                  status):
         TemporaryVariables = {}
         if status=='main_run':
             report.value = ''
-            for setting in toolsListText:
+            for i in range(len(toolsListText)):
+                setting = toolsListText[i]
                 toolType = setting['toolType']
                 fileName = setting['fileName']
                 fullPath = setting['filePath']
@@ -35,6 +38,11 @@ class runEngine():
                 report.value = report.value + alpha.report
                 cameraFlag.value = 1
                 reportFlag.value = 1
+                if alpha.report.find('NOT')== -1:
+                    ChangeColorFlag.value = 1
+                else:
+                    ChangeColorFlag.value = -1
+                ChangeColorIndex.value = i
                 time.sleep(2)
                 # print(globalVariables.out1)
             print(toolsListText)

@@ -7,3 +7,5 @@ global ui
 global report
 global sourcePath
 global resultPath
+global ChangeColorIndex
+global ChangeColorFlag
