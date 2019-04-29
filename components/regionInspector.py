@@ -12,7 +12,7 @@ class regionInspector(object):
             self.originArray = originArray
             self.drawing = False  # true if mouse is pressed
             self.ix, self.iy = -1, -1
-            self.mode = True
+            # self.mode = True
 
             self.img = cv2.imread(InspectionSource, 1)
             self.img2 = self.img.copy()
@@ -40,12 +40,7 @@ class regionInspector(object):
             self.inspectionLayout.addWidget(self.HueLabel)
             self.inspectionLayout.addWidget(self.SatLabel)
             self.inspectionLayout.addWidget(self.ValLabel)
-            # self.HueLabelc = QLabel()
-            # self.SatLabelc = QLabel()
-            # self.ValLabelc = QLabel()
-            # self.inspectionLayout.addWidget(self.HueLabelc)
-            # self.inspectionLayout.addWidget(self.SatLabelc)
-            # self.inspectionLayout.addWidget(self.ValLabelc)
+
 
             self.inspectionDialog.show()
             while (1):
@@ -72,7 +67,7 @@ class regionInspector(object):
 
         if self.Module is "AngleMeasurement":
             self.drawing = False  # True if mouse is pressed
-            self.mode = True  # if True, draw rectangle. Press 'm' to toggle to curve
+            # self.mode = True  # if True, draw rectangle. Press 'm' to toggle to curve
             self.ix, self.iy = -1, -1
 
             # mouse callback function
@@ -107,9 +102,7 @@ class regionInspector(object):
                     self.img2 = self.img.copy()
                     cv2.setMouseCallback('image', self.draw_circle)
                     self.originArray = []
-                    # self.rectRadio.setChecked(True)
-                    # self.RectNow = True
-                    # self.CircNow = False
+
                 elif k == 27:
                     cv2.destroyWindow('image')
                     self.inspectionDialog.close()
@@ -136,17 +129,17 @@ class regionInspector(object):
                 X= False
             elif event == cv2.EVENT_MOUSEMOVE:
                 if self.drawing == True:
-                    if self.mode == True:
-                        if self.rectRadio.isChecked() is True:
-                            cv2.rectangle(overlay, (self.ix, self.iy),
-                                          (x,y), (0, 0, 255), 2)
-                            cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                            cv2.imshow('image', self.img2)
-                        if self.circRadio.isChecked() is True:
-                            cv2.circle(overlay, (self.ix, self.iy),
-                                       int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
-                            cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                            cv2.imshow('image', self.img2)
+                    # if self.mode == True:
+                    if self.rectRadio.isChecked() is True:
+                        cv2.rectangle(overlay, (self.ix, self.iy),
+                                      (x,y), (0, 0, 255), 2)
+                        cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
+                        cv2.imshow('image', self.img2)
+                    if self.circRadio.isChecked() is True:
+                        cv2.circle(overlay, (self.ix, self.iy),
+                                   int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
+                        cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
+                        cv2.imshow('image', self.img2)
             elif event == cv2.EVENT_LBUTTONUP:
                 if self.drawing == True:
                     if self.rectRadio.isChecked() is True:
@@ -174,30 +167,13 @@ class regionInspector(object):
                             # print(cv2.contourArea(mask))
                             # MaskedImg = cv2.bitwise_and(self.img,self.img,mask=mask)
                             HSVImg = cv2.cvtColor(self.img,cv2.COLOR_BGR2HSV)
-                            # cv2.imshow('x',mask)
-                            # cv2.waitKey(0)
-                            # cv2.imshow('x',HSVImg)
-                            # cv2.waitKey(0)
 
-                            # meanHSV = cv2.mean(HSVImg,mask)
-                            # print(meanHSV)
                             h,s,v = cv2.split(HSVImg)
                             Hmean = cv2.mean(h,mask)
                             Smean = cv2.mean(s,mask)
                             Vmean = cv2.mean(v,mask)
                             print(Hmean,Smean,Vmean)
-                            # self.HueLabel = QLabel()
-                            # self.SatLabel = QLabel()
-                            # self.ValLabel = QLabel()
-                            # self.inspectionLayout.addWidget(self.HueLabel)
-                            # self.inspectionLayout.addWidget(self.SatLabel)
-                            # self.inspectionLayout.addWidget(self.ValLabel)
-                            # print(Hmean)
-                            # print(Smean)
-                            # print(Vmean)
-                            # print(meanHSV)
-                            # print(s)
-                            # print(v)
+
                             self.HueLabel.setText("Hue Value for inspected Region is: " + str(Hmean[0]))
                             self.SatLabel.setText("Saturation Value for inspected Region is: " + str(Smean[0]))
                             self.ValLabel.setText("Illumination Value for inspected Region is: " + str(Vmean[0]))
@@ -223,28 +199,23 @@ class regionInspector(object):
 
             elif event == cv2.EVENT_MOUSEMOVE:
                 if self.drawing == True:
-                    if self.mode == True:
-                        cv2.circle(overlay, (self.ix, self.iy),
-                                   int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
-                        cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                        cv2.imshow('image', self.img2)
-                    # else:
-                    #     cv2.rectangle(overlay, (self.ix, self.iy), (x, y), (0, 255, 0), 4)
-                    #     cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                    #     cv2.imshow('image', self.img2)
+                    # if self.mode == True:
+                    cv2.circle(overlay, (self.ix, self.iy),
+                               int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
+                    cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
+                    cv2.imshow('image', self.img2)
+
 
             elif event == cv2.EVENT_LBUTTONUP:
                 self.drawing = False
-                if self.mode == True:
-                    cv2.circle(overlay, (self.ix, self.iy),
-                               int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
-                    cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
-                    self.originArray.append({'style': 'circle',
-                                             'coordinates': [(int((x + self.ix) / 2), int((y + self.iy) / 2)),
-                                                             int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2) / 2.8)]})
-                # else:
-                #     cv2.rectangle(overlay, (self.ix, self.iy), (x, y), (0, 255, 0), 4)
-                #     cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
+                # if self.mode == True:
+                cv2.circle(overlay, (self.ix, self.iy),
+                           int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
+                cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
+                self.originArray.append({'style': 'circle',
+                                         'coordinates': [(int((x + self.ix) / 2), int((y + self.iy) / 2)),
+                                                         int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2) / 2.8)]})
+
 
 
     def getOriginArray(self):

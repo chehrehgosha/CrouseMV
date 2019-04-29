@@ -1,8 +1,10 @@
 import random
-import string
-
+import time
+from PyQt5.QtCore import Qt
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
-    QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit
+    QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit,QFileDialog
+from PyQt5.QtGui import QPixmap
 import cv2,os,globalVariables
 from components import regionInspector
 import numpy as np
@@ -15,67 +17,26 @@ class Tool(object):
                  resultPath = None):
 
         if status=='initialize':
-            self.PatternCheckTool = QDialog()
-            self.mainLayout = QVBoxLayout()
-            self.PatternCheckTool.setLayout(self.mainLayout)
+            self.dlg = QFileDialog()
+            self.dlg.setFileMode(QFileDialog.AnyFile)
+            self.dlg.setNameFilters(["Images (*.jpg)"])
+            self.dlg.selectNameFilter("Images (*.jpg)")
 
-            self.secondQbox = QGroupBox("Target Image")
-            self.mainLayout.addWidget(self.secondQbox)
-            self.layout2 = QHBoxLayout()
-            self.secondQbox.setLayout(self.layout2)
-            self.layout2.addWidget(QLabel("Name of the image where you want to search the pattern"))
-            self.layout2.setStretch(0, 1)
-            self.TargetFile = QLineEdit('lcd.jpg')
-            self.TargetFile.setObjectName('InputFile')
-            self.layout2.addWidget(self.TargetFile)
-            self.layout2.setStretch(1, 1)
+            self.dlg.exec()
+            self.filenames = self.dlg.selectedFiles()
+            # while(len(filenames)==0):
+            #     time.sleep(0.01)
+            self.ContBright = QDialog()
+            self.UI = self.Ui_Dialog()
 
-
-            self.Accuracy = QGroupBox("Accuracy:")
-            self.mainLayout.addWidget(self.Accuracy)
-            self.AccuracyLayout = QHBoxLayout()
-            self.Accuracy.setLayout(self.AccuracyLayout)
-            self.AccuracyLayout.addWidget(QLabel("The threshold for the accurcay (-1 to +1):"))
-            self.AccuracyLayout.setStretch(0, 1)
-            self.AccuracyLine = QLineEdit('0.7')
-            self.AccuracyLine.setObjectName('InputFile')
-            self.AccuracyLayout.addWidget(self.AccuracyLine)
-            self.AccuracyLayout.setStretch(1, 1)
-
-            self.thirdQbox = QGroupBox("Output settings")
-            self.mainLayout.addWidget(self.thirdQbox)
-            self.layout3 = QHBoxLayout()
-            self.thirdQbox.setLayout(self.layout3)
-            self.layout3.addWidget(QLabel("Output File Name:"))
-            self.layout3.setStretch(0, 1)
-            self.OutputFile = QLineEdit('result.jpg')
-            self.OutputFile.setObjectName('OutputFile')
-            self.layout3.addWidget(self.OutputFile)
-            self.layout3.setStretch(1, 1)
-
-            self.fourthQbox = QGroupBox("Pattern settings")
-            self.mainLayout.addWidget(self.fourthQbox)
-            self.layout4 = QHBoxLayout()
-            self.fourthQbox.setLayout(self.layout4)
-            self.layout4.addWidget(QLabel("Pattern Name:"))
-            self.layout4.setStretch(0, 1)
-            self.PatternName = QLineEdit('p')
-            self.PatternName.setObjectName('LED Name')
-            self.layout4.addWidget(self.PatternName)
-            self.layout4.setStretch(1, 1)
-
-            self.spacer = QSpacerItem(100, 100)
-            self.mainLayout.addItem(self.spacer)
-            self.acceptBtn = QPushButton('Accept')
-            self.acceptBtn.setObjectName('acceptBtn')
-            self.mainLayout.addWidget(self.acceptBtn)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
-            self.roiCheckBox.setChecked(True)
-            self.mainLayout.addWidget(self.roiCheckBox)
-            # self.firstQbox.setMaximumHeight(70)
-            self.acceptBtn.clicked.connect(self.illuAccepted)
-            self.PatternCheckTool.exec()
-
+            self.UI.setupUi(self.ContBright)
+            image = QPixmap(self.filenames[0])
+            image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
+            # self.UI.ChangedLabel.setScaledContents(True)
+            self.UI.ChangedLabel.setPixmap(image)
+            self.UI.ContrastSlider.valueChanged.connect(self.ContrastSliderChanged)
+            self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
+            self.ContBright.exec()
         # TODO modify according to new tool
         elif status=='modify':
             self.settings = settings
@@ -177,8 +138,22 @@ class Tool(object):
                 cv2.imwrite(resultPath, img)
                 self.report = '* * * * * * * * *\n Pattern\tStatus\n ' + settings[
                     'pattern_name'] + ' \tNot Found\n\n* * * * * * * * *\n'
-
-
+    def BrightnessSliderChanged(self):
+        img = cv2.imread(self.filenames[0])
+        img = np.add(img, self.UI.BrightnessSlider.value())
+        cv2.imwrite('X.jpg', img)
+        image = QPixmap('X.jpg')
+        image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
+        # self.UI.ChangedLabel.setScaledContents(True)
+        self.UI.ChangedLabel.setPixmap(image)
+    def ContrastSliderChanged(self):
+        img = cv2.imread(self.filenames[0])
+        img = np.multiply(img,self.UI.ContrastSlider.value()/100)
+        cv2.imwrite('X.jpg',img)
+        image = QPixmap('X.jpg')
+        image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
+        # self.UI.ChangedLabel.setScaledContents(True)
+        self.UI.ChangedLabel.setPixmap(image)
     # TODO modify according to new tool
     def toolModified(self):
         self.LEDDetection.close()
@@ -266,3 +241,62 @@ class Tool(object):
                                                   'input':self.InputFile.text(),
                                                   'pattern_name': self.PatternName.text()})
         globalVariables.timeLineFlag.value = 1
+
+    # -*- coding: utf-8 -*-
+
+    # Form implementation generated from reading ui file 'contrast_brightness.ui'
+    #
+    # Created by: PyQt5 UI code generator 5.11.3
+    #
+    # WARNING! All changes made in this file will be lost!
+
+    class Ui_Dialog(object):
+        def setupUi(self, Dialog):
+            Dialog.setObjectName("Dialog")
+            Dialog.resize(480, 640)
+            self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
+            self.buttonBox.setGeometry(QtCore.QRect(10, 600, 461, 32))
+            self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+            self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok)
+            self.buttonBox.setObjectName("buttonBox")
+            self.ChangedLabel = QtWidgets.QLabel(Dialog)
+            self.ChangedLabel.setGeometry(QtCore.QRect(10, 12, 461, 521))
+            self.ChangedLabel.setObjectName("ChangedLabel")
+            self.ContrastSlider = QtWidgets.QSlider(Dialog)
+            self.ContrastSlider.setGeometry(QtCore.QRect(30, 540, 160, 19))
+            self.ContrastSlider.setMinimum(0)
+            self.ContrastSlider.setMaximum(300)
+            # self.ContrastSlider.setSingleStep(1)
+            self.ContrastSlider.setProperty("value", 1)
+            self.ContrastSlider.setOrientation(QtCore.Qt.Horizontal)
+            self.ContrastSlider.setObjectName("ContrastSlider")
+            self.BrightnessSlider = QtWidgets.QSlider(Dialog)
+            self.BrightnessSlider.setGeometry(QtCore.QRect(300, 540, 160, 19))
+            self.BrightnessSlider.setMaximum(100)
+            self.BrightnessSlider.setMinimum(0)
+            # self.BrightnessSlider.setTickPosition(QtWidgets.QSlider.TicksBelow)
+            # self.BrightnessSlider.setTickInterval(5)
+            self.BrightnessSlider.setValue(0)
+            self.BrightnessSlider.setOrientation(QtCore.Qt.Horizontal)
+            self.BrightnessSlider.setObjectName("BrightnessSlider")
+            self.label_2 = QtWidgets.QLabel(Dialog)
+            self.label_2.setGeometry(QtCore.QRect(330, 560, 101, 20))
+            self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+            self.label_2.setObjectName("label_2")
+            self.label_3 = QtWidgets.QLabel(Dialog)
+            self.label_3.setGeometry(QtCore.QRect(80, 560, 61, 20))
+            self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+            self.label_3.setObjectName("label_3")
+
+            self.retranslateUi(Dialog)
+            self.buttonBox.accepted.connect(Dialog.accept)
+            self.buttonBox.rejected.connect(Dialog.reject)
+            QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+        def retranslateUi(self, Dialog):
+            _translate = QtCore.QCoreApplication.translate
+            Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+            self.ChangedLabel.setText(_translate("Dialog", "TextLabel"))
+            self.label_2.setText(_translate("Dialog", "Brightness"))
+            self.label_3.setText(_translate("Dialog", "Contrast"))
+

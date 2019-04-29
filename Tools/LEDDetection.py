@@ -182,47 +182,6 @@ class Tool(object):
                     cv2.imwrite('temp/' + settings['output'], im)
                     cv2.imwrite(resultPath, im)
                     self.report = '* * * * * * * * *\n LED\tStatus\n' + settings['led_name']+ ' \tFound\n\n* * * * * * * * *\n'
-                    # globalVariables.cameraScreenFlag.value = 1
-                    # globalVariables.reportFlag.value = 1
-
-
-                    # if element['style'] == 'circle':
-                    #     coordinates = element['coordinates']
-                    #     mask = np.zeros((im.shape[0], im.shape[1]),dtype=np.uint8)
-                    #     cv2.circle(mask,
-                    #                (int(coordinates[0]), int(coordinates[1])),
-                    #                int(math.floor(coordinates[2]/2.86)),
-                    #                (255,255,255),
-                    #                thickness=-1)
-                    #     invMask = cv2.bitwise_not(mask)
-                    #     masked_data = cv2.bitwise_and(imgray, imgray, mask=mask)
-                    #     ret, thresh = cv2.threshold(masked_data,
-                    #                                 255 * float(settings['illumination']),
-                    #                                 255,
-                    #                                 cv2.THRESH_BINARY)
-                    #     hierarchy, contours, _ = cv2.findContours(thresh,
-                    #                                               cv2.RETR_TREE,
-                    #                                               cv2.CHAIN_APPROX_SIMPLE)
-                    #     cv2.drawContours(im, contours, -1, (0, 255, 0), 3)
-                    #     cv2.imwrite('temp/'+settings['output'], im)
-                    #     cv2.imwrite(resultPath, im)
-                    #     globalVariables.cameraScreenFlag = 1
-
-            # else:
-            #     print('there')
-            #     im = cv2.imread('temp/'+settings['input'])
-            #     imgray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-            #     ret, thresh = cv2.threshold(imgray,
-            #                                 255 * float(settings['illumination']),
-            #                                 255,
-            #                                 cv2.THRESH_BINARY)
-            #     hierarchy, contours, _ = cv2.findContours(thresh,
-            #                                               cv2.RETR_TREE,
-            #                                               cv2.CHAIN_APPROX_SIMPLE)
-            #     cv2.drawContours(im, contours, -1, (0, 255, 0), 3)
-            #     cv2.imwrite('temp/' + settings['output'], im)
-            #     cv2.imwrite(resultPath, im)
-            #     globalVariables.cameraScreenFlag = 1
 
     def toolModified(self):
         self.LEDDetection.close()

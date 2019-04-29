@@ -128,18 +128,6 @@ class Tool(object):
         button = self.mainLayout.sender()
         if button.objectName() == 'acceptBtn':
             originArray = []
-            # if self.roiCheckBox.isChecked() is True:
-            #     inspectorModule = regionInspector.regionInspector(originArray, 'temp/' + self.InputFile.text(),
-            #                                                       'LedDetector')
-            #     originArray = inspectorModule.getOriginArray()
-            #
-            # self.ValueDialog = QDialog()
-            # self.ValueDialogUi = Ui_ValueDialog()
-            # self.ValueDialogUi.setupUi(self.ValueDialog)
-            #
-            # self.ValueDialogUi.buttonBox.accepted.connect(self.buttonAccept)
-            # self.ValueDialog.exec()
-
 
             globalVariables.toolsListText[self.index] = {'toolType': 'ObjectDistance',
                                                              # 'illumination':str(illuPercent),

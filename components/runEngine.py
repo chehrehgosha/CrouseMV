@@ -18,7 +18,7 @@ class runEngine():
                  ChangeColorFlag,
                  ChangeColorIndex,
                  status):
-        TemporaryVariables = {}
+        # TemporaryVariables = {}
         if status=='main_run':
             report.value = ''
             for i in range(len(toolsListText)):
@@ -57,7 +57,7 @@ class runEngine():
                 sys.path.insert(0, fileDir)
                 module = importlib.import_module(moduleName)
                 selectedTool = getattr(module, 'Tool')
-                alpha = selectedTool(setting,
+                _ = selectedTool(setting,
                              status='run',
                              sourcePath= sourcePath.value,
                              resultPath = resultPath.value)
