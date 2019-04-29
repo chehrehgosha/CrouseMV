@@ -29,27 +29,7 @@ class Tool(object):
             self.layout2.addWidget(self.FirstObject)
             self.layout2.setStretch(1, 1)
 
-            # self.PatternSource = QGroupBox("Pattern Source:")
-            # self.mainLayout.addWidget(self.PatternSource)
-            # self.PatternSourceLayout = QHBoxLayout()
-            # self.PatternSource.setLayout(self.PatternSourceLayout)
-            # self.PatternSourceLayout.addWidget(QLabel("Name of the image where you want to sepcify the pattern"))
-            # self.PatternSourceLayout.setStretch(0, 1)
-            # self.PatternSourceLine = QLineEdit()
-            # self.PatternSourceLine.setObjectName('InputFile')
-            # self.PatternSourceLayout.addWidget(self.PatternSourceLine)
-            # self.PatternSourceLayout.setStretch(1, 1)
 
-            # self.Accuracy = QGroupBox("Accuracy:")
-            # self.mainLayout.addWidget(self.Accuracy)
-            # self.AccuracyLayout = QHBoxLayout()
-            # self.Accuracy.setLayout(self.AccuracyLayout)
-            # self.AccuracyLayout.addWidget(QLabel("The threshold for the accurcay (-1 to +1):"))
-            # self.AccuracyLayout.setStretch(0, 1)
-            # self.AccuracyLine = QLineEdit('0.7')
-            # self.AccuracyLine.setObjectName('InputFile')
-            # self.AccuracyLayout.addWidget(self.AccuracyLine)
-            # self.AccuracyLayout.setStretch(1, 1)
 
             self.thirdQbox = QGroupBox("Second Object settings")
             self.mainLayout.addWidget(self.thirdQbox)
@@ -62,16 +42,7 @@ class Tool(object):
             self.layout3.addWidget(self.SecondObject)
             self.layout3.setStretch(1, 1)
 
-            # self.fourthQbox = QGroupBox("Pattern settings")
-            # self.mainLayout.addWidget(self.fourthQbox)
-            # self.layout4 = QHBoxLayout()
-            # self.fourthQbox.setLayout(self.layout4)
-            # self.layout4.addWidget(QLabel("Pattern Name:"))
-            # self.layout4.setStretch(0, 1)
-            # self.PatternName = QLineEdit('1')
-            # self.PatternName.setObjectName('LED Name')
-            # self.layout4.addWidget(self.PatternName)
-            # self.layout4.setStretch(1, 1)
+
 
             self.spacer = QSpacerItem(100, 100)
             self.mainLayout.addItem(self.spacer)
@@ -149,7 +120,7 @@ class Tool(object):
             command = ' globalVariables.' + settings['output']
             SecondObject = eval(command)
             dist = math.sqrt((FirstObject[0]-SecondObject[0])**2+(FirstObject[1]-SecondObject[1])**2)
-            self.report = '*** Distance of Objects are: '+str(dist)+'   ***'
+            self.report = '* * * * * * * * *\n Distance\n '+str(dist)+'\n\n* * * * * * * * *\n'
 
     # TODO modify according to new tool
     def toolModified(self):

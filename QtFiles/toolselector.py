@@ -25,6 +25,7 @@ class Ui_Dialog(object):
         self.Description.setGeometry(QtCore.QRect(10, 10, 321, 431))
         self.Description.setObjectName("Description")
         self.Icon = QtWidgets.QLabel(self.Description)
+        self.Icon.setScaledContents(True)
         self.Icon.setGeometry(QtCore.QRect(20, 340, 50, 50))
         self.Icon.setMinimumSize(QtCore.QSize(50, 50))
         self.Icon.setObjectName("Icon")

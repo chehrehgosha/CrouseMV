@@ -177,7 +177,7 @@ class Tool(object):
 
                 cv2.imwrite('temp/' + settings['output'], img)
                 cv2.imwrite(resultPath, img)
-                self.report =  '* * * * * * * * *\n PATTERN '  + settings['pattern_name']+ ' \nHAS BEEN FOUND \nWITH ACCURACY '+str(max_val)+'\n\n* * * * * * * * *\n'
+                self.report =  '* * * * * * * * *\n Pattern\tStatus\tAccuracy\n '  + settings['pattern_name']+ ' \tFounded \t '+str("{0:.2f}".format(max_val))+'\n\n* * * * * * * * *\n'
                 self.out1 = top_left[0] + w/2
                 self.out2 = top_left[1] + h/2
                 ResultCode = 'globalVariables.'+ settings['pattern_name'] +' =[top_left[0] + w/2 , top_left[1] + h/2]'
@@ -185,8 +185,8 @@ class Tool(object):
             else:
                 cv2.imwrite('temp/' + settings['output'], img)
                 cv2.imwrite(resultPath, img)
-                self.report = '* * * * * * * * *\n PATTERN ' + settings[
-                    'pattern_name'] + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
+                self.report = '* * * * * * * * *\n Pattern\tStatus\n ' + settings[
+                    'pattern_name'] + ' \tNot Found\n\n* * * * * * * * *\n'
 
 
     # TODO modify according to new tool

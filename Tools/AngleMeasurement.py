@@ -149,7 +149,7 @@ class Tool(object):
             im2, contours, hierarchy = cv2.findContours(masked_data, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
             cv2.drawContours(im, contours, -1, (255, 255, 255), 2)
-            print('here')
+            # print('here')
 
             notFound = True
 
@@ -165,10 +165,10 @@ class Tool(object):
                         continue
                     angle = math.atan2((point2[1] - point1[1]) , (point2[0] - point1[0]))
                     if math.degrees(angle) > int(settings['min_angle']) and math.degrees(angle) < int(settings['max_angle']):
-                            self.report = self.report +'* * * * * * * * *\n Angle ' + str("{0:.2f}".format(math.degrees(angle))) + ' \nHAS BEEN FOUND\n\n\n* * * * * * * * *\n'
+                            self.report = self.report +'* * * * * * * * *\n Angle\t Status\n' + str("{0:.2f}".format(math.degrees(angle))) + ' \tFounded\n\n* * * * * * * * *\n'
                             notFound = False
             if notFound is True:
-                self.report = '* * * * * * * * *\n ANGLE ' + ' \nHAS NOT BEEN FOUND\n\n\n* * * * * * * * *\n'
+                self.report = '* * * * * * * * **\n Angle\t Status\n' + str("{0:.2f}".format(math.degrees(angle))) + ' \tNot Founded\n\n* * * * * * * * *\n'
             cv2.imwrite('temp/' + settings['output'], im)
             cv2.imwrite(resultPath, im)
 

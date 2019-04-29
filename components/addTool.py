@@ -15,8 +15,8 @@ class addTool(object):
         self.fileSystemModel.setReadOnly(False)
         self.fileSystemModel.setNameFilters(["*.py"])
         self.fileSystemModel.setNameFilterDisables(False);
-        #TODO change this accordingly
-        self.root = self.fileSystemModel.setRootPath(os.path.join(os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir)),'/Tools/'))
+        self.root = self.fileSystemModel.setRootPath(os.path.abspath(os.path.join(os.path.join(os.path.abspath(__file__),os.pardir),'..\Tools')))
+        # print(os.path.abspath(os.path.join(os.path.join(os.path.abspath(__file__),os.pardir),'..\Tools')))
         # self.root = self.root + '/Tools/'
         self.toolSelector.treeView.setModel(self.fileSystemModel)
         self.toolSelector.treeView.setRootIndex(self.root)
@@ -61,6 +61,7 @@ class addTool(object):
         elif os.path.isfile(changedNodeAddress):
             index = changedNodeAddress.rfind('.')
             rawAddress = changedNodeAddress[:index]
-            iconAddress = rawAddress + '.PNG'
+            #TODO change dynamically for each tool
+            iconAddress = 'temp/icon.png'
             self.toolSelector.Icon.setPixmap(QPixmap(iconAddress))
             self.toolSelector.ToolDescription.setText(os.path.basename(rawAddress + ' Tool'))

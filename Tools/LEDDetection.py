@@ -158,7 +158,7 @@ class Tool(object):
                                     self.MainMask = cv2.bitwise_or(self.MainMask, mask)
                                     found = 1
                 if found is 0:
-                    self.report = '* * * * * * * * *\n LED' + settings['led_name']+ ' \nHAS NOT BEEN FOUND\n\n* * * * * * * * *'
+                    self.report = '* * * * * * * * *\n LED \tStatus\n' + settings['led_name']+ ' \tNot Found\n\n* * * * * * * * *\n'
                 else:
                     _, contours, hierarchy = cv2.findContours(self.MainMask,
                                                               cv2.RETR_TREE,
@@ -171,135 +171,17 @@ class Tool(object):
                     cv2.drawContours(im, hull, -1, (0, 0, 0), 1)
                     print('here')
                     for i in range(len(hull)):
-                        # rect = cv2.minAreaRect(contours[i])
-                        # box = cv2.boxPoints(rect)
-                        # box = np.int0(box)
-                        # im = cv2.drawContours(im, [box], 0, (0, 0, 255), 2)
+
                         (x, y), radius = cv2.minEnclosingCircle(contours[i])
                         center = (int(x), int(y))
                         radius = int(radius)
                         cv2.circle(im, center, radius, (0, 0, 255), 3)
                         cv2.putText(im, settings['led_name'], (int(x), int(y) - 15),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-                    # for element in temp:
-                    #     if element['style'] == 'rect':
-                    #
-                    #         coordinates = element['coordinates']
-                    #         mask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
-                    #         cv2.rectangle(mask,
-                    #                    (int(coordinates[0]), int(coordinates[1])),
-                    #                     (int(coordinates[2]), int(coordinates[3])),
-                    #                    (255,255,255),
-                    #                    thickness=-1)
-                            # cv2.imshow('x',mask)
-                            # cv2.waitKey(0)
-                            # invMask = cv2.bitwise_not(mask)
-                            # masked_data = cv2.bitwise_and(imgray, imgray, mask=mask)
-                            # roi = imgray [coordinates[1]:coordinates[3],coordinates[0]:coordinates[2]]
-                            # cv2.imshow('x',masked_data)
-                            # cv2.waitKey(0)
-                            # SplitedData1, SplitedData2, SplitedData3 = cv2.split(masked_data)
-                            # thresh1 = cv2.inRange(SplitedData1,
-                            #                      int(settings['HSVValues'][0]),
-                            #                      int(settings['HSVValues'][1]))
-                            # thresh2 = cv2.inRange(SplitedData2,
-                            #                       int(settings['HSVValues'][2]),
-                            #                       int(settings['HSVValues'][3]))
-                            # thresh3 = cv2.inRange(SplitedData3,
-                            #                       int(settings['HSVValues'][4]),
-                            #                       int(settings['HSVValues'][5]))
-                            # thresh = thresh1+thresh3+thresh2
 
-
-                            # cv2.imshow('x',thresh1)
-                            # cv2.waitKey(0)
-                            # cv2.imshow('x',thresh2)
-                            # cv2.waitKey(0)
-                            # cv2.imshow('x',thresh3)
-                            # cv2.waitKey(0)
-                            #
-                            #
-                            # thresh1 = cv2.erode(thresh1,None,iterations=2)
-                            # thresh1 = cv2.dilate(thresh1,None,iterations=2)
-                            #
-                            # thresh2 = cv2.erode(thresh2, None, iterations=2)
-                            # thresh2 = cv2.dilate(thresh2, None, iterations=2)
-                            #
-                            # thresh3 = cv2.erode(thresh3, None, iterations=2)
-                            # thresh3 = cv2.dilate(thresh3, None, iterations=2)
-                            #
-                            # cv2.imshow('x', thresh1)
-                            # cv2.waitKey(0)
-                            # cv2.imshow('x', thresh2)
-                            # cv2.waitKey(0)
-                            # cv2.imshow('x', thresh3)
-                            # cv2.waitKey(0)
-                            #
-                            # thresh = cv2.bitwise_and(thresh1, thresh2)
-                            # thresh = cv2.bitwise_and(thresh, thresh3)
-                            # # thresh = cv2.erode(thresh,None,iterations=2)
-                            # cv2.imshow('x', thresh)
-                            # cv2.waitKey(0)
-                            # thresh = cv2.bitwise_and(thresh, thresh, mask=mask)
-                            # thresh = cv2.inRange(imgray, np.array([10, 100, 100]), np.array([100, 255, 255]))
-                            # cv2.imshow('x', thresh)
-                            # cv2.waitKey(0)
-                            # thresh = cv2.inRange(masked_data,
-                            #                      np.array([float(settings['HSVValues'][0]),
-                            #                                float(settings['HSVValues'][2]),
-                            #                                float(settings['HSVValues'][4])]),
-                            #                      np.array([float(settings['HSVValues'][1]),
-                            #                                float(settings['HSVValues'][3]),
-                            #                                float(settings['HSVValues'][5])]))
-
-                            # thresh = cv2.inRange(cv2.split(masked_data)[0],
-                            #                      float(settings['HSVValues'][0]),
-                            #                      float(settings['HSVValues'][1]))
-
-                            # ret, thresh = cv2.threshold(roi,
-                            #                             255 * float(settings['illumination']),
-                            #                             255,
-                            #                             cv2.THRESH_BINARY)
-                            # _, contours, _ = cv2.findContours(thresh,
-                            #                                           cv2.RETR_TREE,
-                            #                                           cv2.CHAIN_APPROX_SIMPLE)
-                            # sorted(contours, key=cv2.contourArea, reverse=True)
-                            # contours = contours[
-                            # :3]
-                            # for cnt in contours:
-                            #     rect = cv2.minAreaRect(cnt)
-                            #     box = cv2.boxPoints(rect)
-                            #     box = np.int0(box)
-                            #     im = cv2.drawContours(im, [box], 0, (0, 0, 255), 2)
-                            # hull = []
-                            #
-                            # calculate points for each contour
-                            # sorted(contours,key=cv2.contourArea,reverse=True)
-                            # print(cv2.contourArea(contours[0]))
-                            # print(cv2.contourArea(contours[1]))
-                            # print(cv2.contourArea(contours[2]))
-                            # for i in range(len(contours)):
-                            #     # creating convex hull object for each contour
-                            #     hull.append(cv2.convexHull(contours[i], False))
-
-                            # sorted(hull, key=cv2.contourArea, reverse=True)
-                            # print(cv2.contourArea(hull[0]))
-                            # print(cv2.contourArea(hull[1]))
-                            # print(cv2.contourArea(hull[2]))
-                            #
-                            # for i in range(len(hull)):
-                            #     # rect = cv2.minAreaRect(cnt)
-                            #     # box = cv2.boxPoints(rect)
-                            #     # box = np.int0(box)
-                            #     # im = cv2.drawContours(im, [box], 0, (0, 0, 255), 2)
-                            #     (x, y), radius = cv2.minEnclosingCircle(hull[i])
-                            #     center = (int(x), int(y))
-                            #     radius = int(radius)
-                            #     cv2.circle(im, center, radius, (0, 255, 0), 1)
-                    # cv2.drawContours(im, contours, -1, (0, 255, 0), 3)
                     cv2.imwrite('temp/' + settings['output'], im)
                     cv2.imwrite(resultPath, im)
-                    self.report =  '* * * * * * * * *\n LED '  + settings['led_name']+ ' \nHAS BEEN FOUND\n\n\n* * * * * * * * *\n'
+                    self.report = '* * * * * * * * *\n LED\tStatus\n' + settings['led_name']+ ' \tFound\n\n* * * * * * * * *\n'
                     # globalVariables.cameraScreenFlag.value = 1
                     # globalVariables.reportFlag.value = 1
 

@@ -1,7 +1,7 @@
 import sys
 import PyQt5
-from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog,QDialog
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog,QDialog,QToolButton
+from PyQt5.QtGui import QPixmap,QIcon
 from PyQt5.QtCore import QTimer,QSize,Qt
 from components.addTool import addTool
 from QtFiles.mainwindow import Ui_MainWindow
@@ -122,10 +122,16 @@ class Application():
                 globalVariables.timeLineFlag.value = 0
                 # item.delete()
             for i in range(len(globalVariables.toolsListText)):
-                newButton = QPushButton(globalVariables.toolsListText[i]['toolType'])
+                newButton = QToolButton()
+                newButton.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+                newButton.setIcon(QIcon('temp/icon.png'))
+                newButton.setText(globalVariables.toolsListText[i]['toolType'])
                 newButton.index = i
                 newButton.clicked.connect(self.timeLineClicked)
                 newButton.setMinimumSize(QSize(65, 50))
+                # newButton.setStyleSheet('background-image: url(\"temp/1.jpg\");background-position: center bottom;\
+                # background-repeat: no-repeat;\
+                # background-origin: content;')
                 self.UI.horizontalLayout.insertWidget(globalVariables.toolsListIndex.value,newButton)
                 # newButton.setStyleSheet('box-shadow: 5px 10px;')
                 globalVariables.toolsListIndex.value = globalVariables.toolsListIndex.value + 1

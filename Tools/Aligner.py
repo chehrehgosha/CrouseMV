@@ -171,7 +171,7 @@ class Tool(object):
                 cv2.imwrite('temp/' + settings['output'], im1Reg)
                 cv2.imwrite(resultPath, im1Reg)
                 globalVariables.cameraScreenFlag = 1
-                self.report = 'Whihooo'
+                self.report = '* * * * * * * * *\n\t Aligned\n\n* * * * * * * * *'
             else:
 
                 im1 = cv2.imread('temp/'+settings['input'], cv2.IMREAD_COLOR)
