@@ -26,18 +26,18 @@ class Tool(object):
             self.filenames = self.dlg.selectedFiles()
             # while(len(filenames)==0):
             #     time.sleep(0.01)
-            self.ContBright = QDialog()
+            self.BinaryMask = QDialog()
             self.UI = self.Ui_Dialog()
 
-            self.UI.setupUi(self.ContBright)
+            self.UI.setupUi(self.BinaryMask)
             self.UI.buttonBox.accepted.connect(self.accepted)
             image = QPixmap(self.filenames[0])
             image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
             # self.UI.ChangedLabel.setScaledContents(True)
             self.UI.ChangedLabel.setPixmap(image)
-            self.UI.ContrastSlider.valueChanged.connect(self.ContrastSliderChanged)
-            self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
-            self.ContBright.exec()
+            self.UI.ThresholdSlider.valueChanged.connect(self.ThresholdSliderChanged)
+            # self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
+            self.BinaryMask.exec()
 
         elif status=='modify':
             self.dlg = QFileDialog()
@@ -49,109 +49,83 @@ class Tool(object):
             self.filenames = self.dlg.selectedFiles()
             # while(len(filenames)==0):
             #     time.sleep(0.01)
-            self.ContBright = QDialog()
+            self.BinaryMask = QDialog()
             self.UI = self.Ui_Dialog()
 
-            self.UI.setupUi(self.ContBright)
+            self.UI.setupUi(self.BinaryMask)
             self.UI.buttonBox.accepted.connect(self.accepted)
+            #ACK here fit image will be displayed according to ratio of window
             image = QPixmap(self.filenames[0])
             image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
             # self.UI.ChangedLabel.setScaledContents(True)
             self.UI.ChangedLabel.setPixmap(image)
-            self.UI.ContrastSlider.valueChanged.connect(self.ContrastSliderChanged)
-            self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
-            self.ContBright.exec()
+            self.UI.ThresholdSlider.valueChanged.connect(self.ThresholdSliderChanged)
+            # self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
+            self.BinaryMask.exec()
 
         elif status == 'run':
-            return
+            img = cv2.imread(settings['input'], cv2.IMREAD_GRAYSCALE)
+            ret, th1 = cv2.threshold(img, settings['threshold'], 255, cv2.THRESH_BINARY)
+            cv2.imwrite('temp/' + settings['output']+'.jpg', th1)
 
-    def BrightnessSliderChanged(self):
-        img = cv2.imread(self.filenames[0])
-        img2 = np.array(img,np.int16)
-
-        img2 = np.add(img2, self.UI.BrightnessSlider.value())
+    def ThresholdSliderChanged(self):
+        img = cv2.imread(self.filenames[0],cv2.IMREAD_GRAYSCALE)
+        ret, th1 = cv2.threshold(img, self.UI.ThresholdSlider.value(), 255, cv2.THRESH_BINARY)
         # print(img)
-        img2[img2 > 255] = 255
-        img2[img2 < 0] = 0
-        img = np.array(img2,np.uint8)
-        # print(img)
-        cv2.imwrite('temp/X.jpg', img)
+        cv2.imwrite('temp/X.jpg', th1)
         image = QPixmap('temp/X.jpg')
         image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
-        # self.UI.ChangedLabel.setScaledContents(True)
-        self.UI.ChangedLabel.setPixmap(image)
-
-    def ContrastSliderChanged(self):
-        img = cv2.imread(self.filenames[0])
-        img = np.multiply(img,self.UI.ContrastSlider.value()/100)
-        cv2.imwrite('temp/X.jpg',img)
-        image = QPixmap('temp/X.jpg')
-        image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
-
         # self.UI.ChangedLabel.setScaledContents(True)
         self.UI.ChangedLabel.setPixmap(image)
 
     def accepted(self):
         img = cv2.imread('temp/X.jpg')
         cv2.imwrite('temp/'+self.UI.OutputName.text()+'.jpg',img)
-        self.ContBright.close()
-        globalVariables.toolsListText.append({'toolType': 'ContBright',
+        self.BinaryMask.close()
+        globalVariables.toolsListText.append({'toolType': 'BinaryMask',
                                                      'filePath': os.path.abspath(__file__),
                                                      'fileName': os.path.basename(__file__),
-                                                     'output': self.UI.ChangedLabel.text()})
+                                                     'output': self.UI.OutputName.text(),
+                                              'input': self.filenames[0],
+                                              'threshold':self.UI.ThresholdSlider.value()})
         globalVariables.timeLineFlag.value = 1
 
     class Ui_Dialog(object):
         def setupUi(self, Dialog):
             Dialog.setObjectName("Dialog")
             Dialog.resize(480, 640)
+            self.ThresholdSlider = QtWidgets.QSlider(Dialog)
+            self.ThresholdSlider.setGeometry(QtCore.QRect(19, 530, 441, 20))
+            self.ThresholdSlider.setMinimum(0)
+            self.ThresholdSlider.setMaximum(255)
+            self.ThresholdSlider.setProperty("value", 127)
+            self.ThresholdSlider.setOrientation(QtCore.Qt.Horizontal)
+            self.ThresholdSlider.setObjectName("ThresholdSlider")
             self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-            self.buttonBox.setGeometry(QtCore.QRect(10, 600, 461, 32))
+            self.buttonBox.setGeometry(QtCore.QRect(10, 590, 461, 32))
             self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
             self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok)
             self.buttonBox.setObjectName("buttonBox")
-            self.ChangedLabel = QtWidgets.QLabel(Dialog)
-            self.ChangedLabel.setGeometry(QtCore.QRect(10, 12, 461, 521))
-            self.ChangedLabel.setObjectName("ChangedLabel")
-            self.ContrastSlider = QtWidgets.QSlider(Dialog)
-            self.ContrastSlider.setGeometry(QtCore.QRect(30, 540, 160, 19))
-            self.ContrastSlider.setMinimum(0)
-            self.ContrastSlider.setMaximum(300)
-            self.ContrastSlider.setSingleStep(1)
-            self.ContrastSlider.setProperty("value", 100)
-            self.ContrastSlider.setOrientation(QtCore.Qt.Horizontal)
-            self.ContrastSlider.setObjectName("ContrastSlider")
-            self.BrightnessSlider = QtWidgets.QSlider(Dialog)
-            self.BrightnessSlider.setGeometry(QtCore.QRect(300, 540, 160, 19))
-            self.BrightnessSlider.setMinimum(-200)
-            self.BrightnessSlider.setMaximum(200)
-            self.BrightnessSlider.setOrientation(QtCore.Qt.Horizontal)
-            self.BrightnessSlider.setObjectName("BrightnessSlider")
-            self.label_2 = QtWidgets.QLabel(Dialog)
-            self.label_2.setGeometry(QtCore.QRect(330, 560, 101, 20))
-            self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-            self.label_2.setObjectName("label_2")
-            self.label_3 = QtWidgets.QLabel(Dialog)
-            self.label_3.setGeometry(QtCore.QRect(80, 560, 61, 20))
-            self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-            self.label_3.setObjectName("label_3")
             self.OutputName = QtWidgets.QLineEdit(Dialog)
-            self.OutputName.setGeometry(QtCore.QRect(120, 600, 113, 20))
+            self.OutputName.setGeometry(QtCore.QRect(120, 590, 113, 20))
             self.OutputName.setObjectName("OutputName")
             self.label = QtWidgets.QLabel(Dialog)
-            self.label.setGeometry(QtCore.QRect(30, 600, 81, 16))
+            self.label.setGeometry(QtCore.QRect(30, 590, 81, 16))
             self.label.setObjectName("label")
+            self.ChangedLabel = QtWidgets.QLabel(Dialog)
+            self.ChangedLabel.setGeometry(QtCore.QRect(10, 2, 461, 521))
+            self.ChangedLabel.setObjectName("ChangedLabel")
+            self.label_2 = QtWidgets.QLabel(Dialog)
+            self.label_2.setGeometry(QtCore.QRect(190, 550, 101, 20))
+            self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+            self.label_2.setObjectName("label_2")
 
             self.retranslateUi(Dialog)
-
-            self.buttonBox.rejected.connect(Dialog.reject)
             QtCore.QMetaObject.connectSlotsByName(Dialog)
 
         def retranslateUi(self, Dialog):
             _translate = QtCore.QCoreApplication.translate
             Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-            self.ChangedLabel.setText(_translate("Dialog", "TextLabel"))
-            self.label_2.setText(_translate("Dialog", "Brightness"))
-            self.label_3.setText(_translate("Dialog", "Contrast"))
             self.label.setText(_translate("Dialog", "Output Name:"))
-
+            self.ChangedLabel.setText(_translate("Dialog", "TextLabel"))
+            self.label_2.setText(_translate("Dialog", "Threshold"))

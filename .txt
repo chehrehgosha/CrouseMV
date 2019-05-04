@@ -1,1 +1,0 @@
-{'toolType': 'PatternCheckTool', 'filePath': 'E:\\CrouseRep\\CrouseMV\\Tools\\PatternCheckTool.py', 'fileName': 'PatternCheckTool.py', 'inspection': True, 'region': [{'style': 'rect', 'coordinates': [599, 4, 749, 108]}], 'accuracy': 0.7, 'output': 'result.jpg', 'input': 'lcd.jpg', 'pattern_name': 'p'}
