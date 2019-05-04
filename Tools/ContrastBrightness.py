@@ -30,6 +30,7 @@ class Tool(object):
             self.UI = self.Ui_Dialog()
 
             self.UI.setupUi(self.ContBright)
+            self.UI.buttonBox.accepted.connect(self.accepted)
             image = QPixmap(self.filenames[0])
             image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
             # self.UI.ChangedLabel.setScaledContents(True)
@@ -140,7 +141,14 @@ class Tool(object):
                     'pattern_name'] + ' \tNot Found\n\n* * * * * * * * *\n'
     def BrightnessSliderChanged(self):
         img = cv2.imread(self.filenames[0])
-        img = np.add(img, self.UI.BrightnessSlider.value())
+        img2 = np.array(img,np.int16)
+
+        img2 = np.add(img2, self.UI.BrightnessSlider.value())
+        # print(img)
+        img2[img2 > 255] = 255
+        img2[img2 < 0] = 0
+        img = np.array(img2,np.uint8)
+        # print(img)
         cv2.imwrite('X.jpg', img)
         image = QPixmap('X.jpg')
         image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
@@ -152,6 +160,7 @@ class Tool(object):
         cv2.imwrite('X.jpg',img)
         image = QPixmap('X.jpg')
         image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
+
         # self.UI.ChangedLabel.setScaledContents(True)
         self.UI.ChangedLabel.setPixmap(image)
     # TODO modify according to new tool
@@ -242,13 +251,7 @@ class Tool(object):
                                                   'pattern_name': self.PatternName.text()})
         globalVariables.timeLineFlag.value = 1
 
-    # -*- coding: utf-8 -*-
 
-    # Form implementation generated from reading ui file 'contrast_brightness.ui'
-    #
-    # Created by: PyQt5 UI code generator 5.11.3
-    #
-    # WARNING! All changes made in this file will be lost!
 
     class Ui_Dialog(object):
         def setupUi(self, Dialog):
@@ -266,17 +269,14 @@ class Tool(object):
             self.ContrastSlider.setGeometry(QtCore.QRect(30, 540, 160, 19))
             self.ContrastSlider.setMinimum(0)
             self.ContrastSlider.setMaximum(300)
-            # self.ContrastSlider.setSingleStep(1)
-            self.ContrastSlider.setProperty("value", 1)
+            self.ContrastSlider.setSingleStep(1)
+            self.ContrastSlider.setProperty("value", 100)
             self.ContrastSlider.setOrientation(QtCore.Qt.Horizontal)
             self.ContrastSlider.setObjectName("ContrastSlider")
             self.BrightnessSlider = QtWidgets.QSlider(Dialog)
             self.BrightnessSlider.setGeometry(QtCore.QRect(300, 540, 160, 19))
-            self.BrightnessSlider.setMaximum(100)
-            self.BrightnessSlider.setMinimum(0)
-            # self.BrightnessSlider.setTickPosition(QtWidgets.QSlider.TicksBelow)
-            # self.BrightnessSlider.setTickInterval(5)
-            self.BrightnessSlider.setValue(0)
+            self.BrightnessSlider.setMinimum(-200)
+            self.BrightnessSlider.setMaximum(200)
             self.BrightnessSlider.setOrientation(QtCore.Qt.Horizontal)
             self.BrightnessSlider.setObjectName("BrightnessSlider")
             self.label_2 = QtWidgets.QLabel(Dialog)
@@ -287,9 +287,15 @@ class Tool(object):
             self.label_3.setGeometry(QtCore.QRect(80, 560, 61, 20))
             self.label_3.setAlignment(QtCore.Qt.AlignCenter)
             self.label_3.setObjectName("label_3")
+            self.OutputName = QtWidgets.QLineEdit(Dialog)
+            self.OutputName.setGeometry(QtCore.QRect(120, 600, 113, 20))
+            self.OutputName.setObjectName("OutputName")
+            self.label = QtWidgets.QLabel(Dialog)
+            self.label.setGeometry(QtCore.QRect(30, 600, 81, 16))
+            self.label.setObjectName("label")
 
             self.retranslateUi(Dialog)
-            self.buttonBox.accepted.connect(Dialog.accept)
+
             self.buttonBox.rejected.connect(Dialog.reject)
             QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -299,4 +305,12 @@ class Tool(object):
             self.ChangedLabel.setText(_translate("Dialog", "TextLabel"))
             self.label_2.setText(_translate("Dialog", "Brightness"))
             self.label_3.setText(_translate("Dialog", "Contrast"))
-
+            self.label.setText(_translate("Dialog", "Output Name:"))
+    def accepted(self):
+        img = cv2.imread('X.jpg')
+        cv2.imwrite(self.UI.OutputName.text()+'.jpg',img)
+        self.ContBright.close()
+        globalVariables.toolsListText[self.index] = {'toolType': 'ContBright',
+                                                     'filePath': os.path.abspath(__file__),
+                                                     'fileName': os.path.basename(__file__),
+                                                     'output': self.UI.ChangedLabel.text()}
