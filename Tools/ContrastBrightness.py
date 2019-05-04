@@ -35,8 +35,8 @@ class Tool(object):
             image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
             # self.UI.ChangedLabel.setScaledContents(True)
             self.UI.ChangedLabel.setPixmap(image)
-            self.UI.ContrastSlider.valueChanged.connect(self.ContrastSliderChanged)
-            self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
+            self.UI.ContrastSlider.valueChanged.connect(self.SliderChanged)
+            self.UI.BrightnessSlider.valueChanged.connect(self.SliderChanged)
             self.ContBright.exec()
 
         elif status=='modify':
@@ -58,36 +58,35 @@ class Tool(object):
             image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
             # self.UI.ChangedLabel.setScaledContents(True)
             self.UI.ChangedLabel.setPixmap(image)
-            self.UI.ContrastSlider.valueChanged.connect(self.ContrastSliderChanged)
-            self.UI.BrightnessSlider.valueChanged.connect(self.BrightnessSliderChanged)
+            self.UI.ContrastSlider.valueChanged.connect(self.SliderChanged)
+            self.UI.BrightnessSlider.valueChanged.connect(self.SliderChanged)
             self.ContBright.exec()
 
         elif status == 'run':
-            return
+            img = cv2.imread(settings['input'])
+            img2 = np.array(img, np.int16)
+            img2 = np.multiply(img2, settings['contrast'] / 100)
+            img2 = np.add(img2, settings['brightness'])
+            img2[img2 > 255] = 255
+            img2[img2 < 0] = 0
+            img = np.array(img2, np.uint8)
+            # print(img)
+            cv2.imwrite('temp/'+settings['output']+'.jpg', img)
+            cv2.imwrite(resultPath, img)
+            self.report = '* * * * * * * * *\n Brightness/Contrast Tool Done\n\n* * * * * * * * *\n'
 
-    def BrightnessSliderChanged(self):
+    def SliderChanged(self):
         img = cv2.imread(self.filenames[0])
         img2 = np.array(img,np.int16)
-
+        img2 = np.multiply(img2,self.UI.ContrastSlider.value()/100)
         img2 = np.add(img2, self.UI.BrightnessSlider.value())
-        # print(img)
         img2[img2 > 255] = 255
         img2[img2 < 0] = 0
-        img = np.array(img2,np.uint8)
+        img = np.array(img2, np.uint8)
         # print(img)
         cv2.imwrite('temp/X.jpg', img)
         image = QPixmap('temp/X.jpg')
         image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
-        # self.UI.ChangedLabel.setScaledContents(True)
-        self.UI.ChangedLabel.setPixmap(image)
-
-    def ContrastSliderChanged(self):
-        img = cv2.imread(self.filenames[0])
-        img = np.multiply(img,self.UI.ContrastSlider.value()/100)
-        cv2.imwrite('temp/X.jpg',img)
-        image = QPixmap('temp/X.jpg')
-        image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
-
         # self.UI.ChangedLabel.setScaledContents(True)
         self.UI.ChangedLabel.setPixmap(image)
 
@@ -98,7 +97,10 @@ class Tool(object):
         globalVariables.toolsListText.append({'toolType': 'ContBright',
                                                      'filePath': os.path.abspath(__file__),
                                                      'fileName': os.path.basename(__file__),
-                                                     'output': self.UI.ChangedLabel.text()})
+                                                     'brightness':self.UI.BrightnessSlider.value(),
+                                                     'contrast':self.UI.ContrastSlider.value(),
+                                                     'output': self.UI.ChangedLabel.text(),
+                                                     'input':self.filenames[0]})
         globalVariables.timeLineFlag.value = 1
 
     class Ui_Dialog(object):

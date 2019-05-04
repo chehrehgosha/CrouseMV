@@ -86,7 +86,9 @@ class Tool(object):
 
         elif status == 'run':
             img = cv2.imread('temp/' + settings['input'], cv2.IMREAD_GRAYSCALE)
-            cv2.imwrite('temp/' + settings['output'], img)
+            cv2.imwrite('temp/' + settings['output']+'.jpg', img)
+            cv2.imwrite(resultPath, img)
+            self.report = '* * * * * * * * *\n Gray Scale Tool Done\n\n* * * * * * * * *\n'
 
     def illuAccepted(self):
         self.GrayScale.close()

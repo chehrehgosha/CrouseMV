@@ -67,6 +67,8 @@ class Tool(object):
             img = cv2.imread(settings['input'], cv2.IMREAD_GRAYSCALE)
             ret, th1 = cv2.threshold(img, settings['threshold'], 255, cv2.THRESH_BINARY)
             cv2.imwrite('temp/' + settings['output']+'.jpg', th1)
+            cv2.imwrite(resultPath, th1)
+            self.report = '* * * * * * * * *\n Binary Mask Tool Done\n\n* * * * * * * * *\n'
 
     def ThresholdSliderChanged(self):
         img = cv2.imread(self.filenames[0],cv2.IMREAD_GRAYSCALE)
