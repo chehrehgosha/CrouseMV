@@ -3,7 +3,9 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="38cb96da-a528-4ff1-bf14-f1be776c46e2" name="Version Control" url="http://localhost">
-        <fileTransfer port="0" mountedRoot="C:\version Control" accessType="MOUNT" />
+        <fileTransfer host="192.168.20.184" port="22" rootFolder="/root" accessType="SFTP">
+          <option name="port" value="22" />
+        </fileTransfer>
       </webServer>
     </option>
   </component>
