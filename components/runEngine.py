@@ -1,3 +1,4 @@
+import ctypes
 import multiprocessing
 import globalVariables
 import importlib
@@ -18,10 +19,13 @@ class runEngine():
                  ChangeColorFlag,
                  ChangeColorIndex,
                  status):
+
         # TemporaryVariables = {}
+        # x11 = ctypes.cdll.LoadLibrary('libX11.so')
         if status=='main_run':
             report.value = ''
             for i in range(len(toolsListText)):
+
                 setting = toolsListText[i]
                 toolType = setting['toolType']
                 fileName = setting['fileName']
@@ -44,6 +48,7 @@ class runEngine():
                     ChangeColorFlag.value = -1
                 ChangeColorIndex.value = i
                 time.sleep(2)
+
                 # print(globalVariables.out1)
             print(toolsListText)
         elif status=='pre_run':

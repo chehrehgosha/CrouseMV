@@ -1,21 +1,26 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+import ctypes
 import sys
 import PyQt5
 from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog,QDialog,QToolButton
 from PyQt5.QtGui import QPixmap,QIcon
 from PyQt5.QtCore import QTimer,QSize,Qt
-from components.addTool import addTool
+from components import Camera
+from components.AddTool import addTool
 from QtFiles.mainwindow import Ui_MainWindow
 from QtFiles.runscreen import Ui_Dialog as Ui_RunMode
 from components.runEngine import runEngine
-from multiprocessing import Process, Manager
+from multiprocessing import Process, Manager, Lock
+# from threading import Lock
 import importlib.util
 import globalVariables
-import pickle
-
+import threading
+# from gi.repository import Gtk
+# import pygtk, gtk, gobject
 class Application():
     def __init__(self):
+
         self.app = QApplication(sys.argv)
         self.window = QMainWindow()
         self.UI = Ui_MainWindow()
@@ -26,6 +31,7 @@ class Application():
         self.UI.LoadProgramButton.clicked.connect(self.load_program)
         self.UI.SaveProgramButton.clicked.connect(self.save_program)
         self.UI.RunMode.clicked.connect(self.run_mode)
+        self.UI.Exit_Button.clicked.connect(self.exit)
 
 
         self.window.show()
@@ -55,7 +61,8 @@ class Application():
         self.RunModeDialog.exec()
     def setup_mode(self):
         self.RunModeDialog.close()
-
+    def exit(self):
+        self.window.close()
     def runButton_clicked(self):
         toolRunnerInstance = Process(target=runEngine,args=(globalVariables.toolsListText,
                                                             globalVariables.cameraScreenFlag,
@@ -138,22 +145,18 @@ class Application():
                 # newButton.setStyleSheet('box-shadow: 5px 10px;')
                 globalVariables.toolsListIndex.value = globalVariables.toolsListIndex.value + 1
                 globalVariables.timeLineFlag.value = 0
-            # print(globalVariables.toolsListText)
         if globalVariables.cameraScreenFlag.value == 1:
-            # print('salam')
             image = QPixmap(globalVariables.resultPath.value)
             image = image.scaled(self.UI.cameraLabel.width(),self.UI.cameraLabel.height(),Qt.KeepAspectRatio)
-            # self.UI.cameraLabel.setScaledContents(True)
             self.UI.cameraLabel.setPixmap(image)
-
             globalVariables.cameraScreenFlag.value = 0
         if globalVariables.reportFlag.value == 1:
-            print(globalVariables.toolsListText)
-            # Report_text = ''
-            # for tool in globalVariables.toolsListText:
-            #     Report_text = Report_text + tool['report']
-            self.UI.Report_Label.setText(globalVariables.report.value)
-            globalVariables.reportFlag.value = 0
+                print(globalVariables.toolsListText)
+                self.UI.Report_Label.setText(globalVariables.report.value)
+                globalVariables.reportFlag.value = 0
+
+
+
     def timeLineClicked(self):
         Icon = self.UI.horizontalLayout.sender()
         index = Icon.index

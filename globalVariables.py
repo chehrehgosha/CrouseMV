@@ -9,3 +9,6 @@ global sourcePath
 global resultPath
 global ChangeColorIndex
 global ChangeColorFlag
+global lock
+global camera_source_flag
+global camera_source_address

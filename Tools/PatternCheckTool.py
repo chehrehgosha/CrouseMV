@@ -1,19 +1,20 @@
+import ctypes
 import random
 import string
-
+import threading
 from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
     QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit
 import cv2,os,globalVariables
-from components import regionInspector
+from components import regionInspector,Camera
 import numpy as np
+from PyQt5 import QtCore
 class Tool(object):
     def __init__(self,
                  settings = None,
                  index=None,
                  status='initialize',
-                 sourcePath = None,
-                 resultPath = None):
-
+                 resultPath = None,
+                 sourcePath = None):
         if status=='initialize':
             self.PatternCheckTool = QDialog()
             self.mainLayout = QVBoxLayout()
@@ -25,7 +26,7 @@ class Tool(object):
             self.secondQbox.setLayout(self.layout2)
             self.layout2.addWidget(QLabel("Name of the image where you want to search the pattern"))
             self.layout2.setStretch(0, 1)
-            self.TargetFile = QLineEdit('lcd.jpg')
+            self.TargetFile = QLineEdit('ww.jpg')
             self.TargetFile.setObjectName('InputFile')
             self.layout2.addWidget(self.TargetFile)
             self.layout2.setStretch(1, 1)
@@ -69,7 +70,7 @@ class Tool(object):
             self.acceptBtn = QPushButton('Accept')
             self.acceptBtn.setObjectName('acceptBtn')
             self.mainLayout.addWidget(self.acceptBtn)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
+            self.roiCheckBox = QCheckBox('Do you want to use Camera as source of input?')
             self.roiCheckBox.setChecked(True)
             self.mainLayout.addWidget(self.roiCheckBox)
             # self.firstQbox.setMaximumHeight(70)
@@ -128,18 +129,19 @@ class Tool(object):
             self.deleteBtn.setObjectName('deleteBtn')
             self.mainLayout.addWidget(self.deleteBtn)
             # self.firstQbox.setMaximumHeight(70)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
+            self.roiCheckBox = QCheckBox('Do you want to use Camera as source of input?')
             self.mainLayout.addWidget(self.roiCheckBox)
             self.acceptBtn.clicked.connect(self.toolModified)
             self.deleteBtn.clicked.connect(self.toolModified)
             self.LEDDetection.exec()
 
         elif status == 'run':
-
-            img = cv2.imread('temp/'+settings['input'])
-            # img =  cv2.imread('temp/rotatedp.jpg')
+            if settings['camera'] is True:
+                Cam = Camera.Camera()
+                Cam.run_capture('temp/'+settings['input'])
+                Cam.checkFile('temp/'+settings['input'])
+            img = cv2.imread(os.getcwd()+'/temp/'+settings['input'])
             template = cv2.imread('temp/'+settings['pattern_name']+'.jpg')
-            # template = cv2.imread('temp/rotatedp.jpg')
             w, h = template.shape[1],template.shape[0]
 
             temp = settings['region']
@@ -156,7 +158,6 @@ class Tool(object):
             res = cv2.matchTemplate(masked_data, template, cv2.TM_CCORR_NORMED)
 
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-
             if (max_val > settings['accuracy']):
                 top_left = max_loc
                 bottom_right = (top_left[0] + w, top_left[1] + h)
@@ -228,6 +229,10 @@ class Tool(object):
     def illuAccepted(self):
         self.PatternCheckTool.close()
 
+        if self.roiCheckBox.isChecked() is True:
+            Cam = Camera.Camera()
+            Cam.setup_capture('temp/' + self.TargetFile.text())
+            Cam.checkFile('temp/' + self.TargetFile.text())
         img = cv2.imread('temp/'+self.TargetFile.text())
         r = cv2.selectROI("Please select region of pattern",img)
         cv2.destroyWindow("Please select region of pattern")
@@ -245,16 +250,16 @@ class Tool(object):
         if len(CheckRegion) is not 0:
 
             globalVariables.toolsListText.append({'toolType':'PatternCheckTool',
-                                                  # 'illumination':str(illuPercent),
                                                   'filePath':os.path.abspath(__file__),
                                                   'fileName':os.path.basename(__file__),
                                                   'inspection':True,
                                                   'region':CheckRegion,
                                                   'accuracy':float(self.AccuracyLine.text()),
-                                                  # 'HSVValues':self.Values,
+
                                                   'output':self.OutputFile.text(),
                                                   'input':self.TargetFile.text(),
-                                                  'pattern_name':self.PatternName.text()})
+                                                  'pattern_name':self.PatternName.text(),
+                                                  'camera':True})
         else:
             globalVariables.toolsListText.append({'toolType': 'PatternCheckTool',
                                                   # 'illumination': str(illuPercent),

@@ -286,7 +286,7 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <widget class="QPushButton" name="pushButton_11">
+    <widget class="QPushButton" name="Exit_Button">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -302,45 +302,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Execute</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_12">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>20</y>
-       <width>65</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>65</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Utility</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_13">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>20</y>
-       <width>65</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>65</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Output</string>
+      <string>Exit</string>
      </property>
     </widget>
    </widget>
@@ -422,14 +384,13 @@ Run Mode</string>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
