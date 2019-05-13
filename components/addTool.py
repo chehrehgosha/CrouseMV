@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QDialog,QFileSystemModel
 from PyQt5.QtGui import QPixmap
-from QtFiles.toolselector import Ui_Dialog
+from QtFiles.toolselector import Ui_Tool_Selector
 import os
 import sys
 import importlib.util
@@ -9,7 +9,7 @@ import importlib.util
 class addTool(object):
     def __init__(self):
         self.toolSelectorDialog = QDialog()
-        self.toolSelector = Ui_Dialog()
+        self.toolSelector = Ui_Tool_Selector()
         self.toolSelector.setupUi(self.toolSelectorDialog)
         self.fileSystemModel = QFileSystemModel(self.toolSelector.treeView)
         self.fileSystemModel.setReadOnly(False)

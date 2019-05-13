@@ -5,8 +5,8 @@ import sys
 import PyQt5
 from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog,QDialog,QToolButton
 from PyQt5.QtGui import QPixmap,QIcon
-from PyQt5.QtCore import QTimer,QSize,Qt
-from components import Camera
+from PyQt5.QtCore import QTimer,QSize,Qt,QFile
+
 from components.AddTool import addTool
 from QtFiles.mainwindow import Ui_MainWindow
 from QtFiles.runscreen import Ui_Dialog as Ui_RunMode
@@ -32,8 +32,12 @@ class Application():
         self.UI.SaveProgramButton.clicked.connect(self.save_program)
         self.UI.RunMode.clicked.connect(self.run_mode)
         self.UI.Exit_Button.clicked.connect(self.exit)
-
-
+        with open('stylesheet.qss', 'r') as file:
+            data = file.read()
+        self.app.setStyleSheet(data)
+        image = QPixmap("images/CrouseLogo.png")
+        image = image.scaled(self.UI.Logo.width(), self.UI.Logo.height(), Qt.KeepAspectRatio)
+        self.UI.Logo.setPixmap(image)
         self.window.show()
 
         self.manager = Manager()

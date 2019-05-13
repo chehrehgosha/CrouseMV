@@ -24,14 +24,14 @@
     <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54381084">
+    <splitter split-orientation="horizontal" split-proportion="0.44645342">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/program.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="268">
-                  <caret line="73" column="93" selection-start-line="73" selection-start-column="93" selection-end-line="73" selection-end-column="93" />
+                <state relative-caret-position="476">
+                  <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
                   <folding>
                     <element signature="e#43#56#0" expanded="true" />
                   </folding>
@@ -39,38 +39,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="globalVariables.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/globalVariables.py">
+          <file leaf-file-name="mainwindow.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="runEngine.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/runEngine.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="121">
-                  <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                    <element signature="e#659#3540#0" />
-                    <element signature="e#3629#6087#0" />
-                    <element signature="e#8650#11327#0" />
-                  </folding>
+                <state relative-caret-position="221">
+                  <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -79,11 +52,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Camera.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Camera.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/components/Camera.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="541">
-                  <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="39" />
+                <state relative-caret-position="405">
+                  <caret line="24" column="45" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="24" selection-end-column="45" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -91,13 +64,54 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="181">
+                  <caret line="150" column="63" lean-forward="true" selection-start-line="150" selection-start-column="63" selection-end-line="150" selection-end-column="63" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="toolselector.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/QtFiles/toolselector.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="stylesheet.qss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/stylesheet.qss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="541">
+                  <caret line="40" selection-start-line="40" selection-end-line="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AddTool.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/components/AddTool.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+                  <folding>
+                    <element signature="e#0#52#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+                <state relative-caret-position="301">
+                  <caret line="161" column="79" selection-start-line="161" selection-start-column="79" selection-end-line="161" selection-end-column="79" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
+                    <element signature="e#8650#11327#0" />
+                    <element signature="e#11365#14330#0" />
                   </folding>
                 </state>
               </provider>
@@ -116,9 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.jpg</find>
-      <find>coordina</find>
-      <find>resultpath</find>
       <find>ord</find>
       <find>Dialog.</find>
       <find>color</find>
@@ -146,6 +157,9 @@
       <find>here</find>
       <find>2.5</find>
       <find>lock</find>
+      <find>scrol</find>
+      <find>logo</find>
+      <find>imshow</find>
     </findStrings>
     <replaceStrings>
       <replace>cv2</replace>
@@ -160,6 +174,7 @@
     </replaceStrings>
     <dirStrings>
       <dir>E:\KeyenceLikeProject</dir>
+      <dir>E:\CrouseRep\CrouseMV</dir>
     </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -177,11 +192,9 @@
         <option value="$PROJECT_DIR$/TEST/test.py" />
         <option value="$PROJECT_DIR$/ScriptEngine.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/QtFiles/toolselector.py" />
         <option value="$PROJECT_DIR$/Tools/Aligner.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
         <option value="$PROJECT_DIR$/components/addTool.py" />
-        <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/ObjectDistance.py" />
         <option value="$PROJECT_DIR$/QtFiles/contrast_brightness.py" />
@@ -190,9 +203,13 @@
         <option value="$PROJECT_DIR$/Tools/BinaryMask.py" />
         <option value="$PROJECT_DIR$/QtFiles/mainwindow.py" />
         <option value="$PROJECT_DIR$/globalVariables.py" />
-        <option value="$PROJECT_DIR$/components/Camera.py" />
-        <option value="$PROJECT_DIR$/program.py" />
         <option value="$PROJECT_DIR$/components/runEngine.py" />
+        <option value="$PROJECT_DIR$/QtFiles/toolselector.py" />
+        <option value="$PROJECT_DIR$/components/AddTool.py" />
+        <option value="$PROJECT_DIR$/program.py" />
+        <option value="$PROJECT_DIR$/stylesheet.qss" />
+        <option value="$PROJECT_DIR$/components/Camera.py" />
+        <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
       </list>
     </option>
@@ -269,17 +286,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\KeyenceLikeProject\TEST" />
+      <recent name="E:\KeyenceLikeProject\temp" />
+      <recent name="E:\KeyenceLikeProject" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\CrouseRep\CrouseMV\QtFiles" />
       <recent name="E:\CrouseRep\CrouseMV" />
       <recent name="E:\KeyenceLikeProject\temp" />
       <recent name="E:\KeyenceLikeProject\images" />
       <recent name="E:\KeyenceLikeProject\QtFiles" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\KeyenceLikeProject\TEST" />
-      <recent name="E:\KeyenceLikeProject\temp" />
-      <recent name="E:\KeyenceLikeProject" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -437,6 +454,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.44107142" side_tool="true" weight="0.34033614" />
@@ -445,10 +463,11 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32938644" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.25941873" />
-      <window_info active="true" anchor="bottom" x="-38" y="379" width="1679" height="252" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.25726587" />
+      <window_info active="true" anchor="bottom" x="-38" y="379" width="1679" height="252" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.25618947" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.121026896" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32983193" />
       <window_info anchor="right" id="SciView" order="3" weight="0.4577381" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -459,7 +478,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32983193" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,9 +506,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/temp/result.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/testt.py" />
     <entry file="file://$PROJECT_DIR$/TEST/rotate.gif">
       <provider selected="true" editor-type-id="images" />
@@ -633,13 +648,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ali.txt" />
     <entry file="file://$PROJECT_DIR$/temp/1.jpg" />
-    <entry file="file://$PROJECT_DIR$/QtFiles/toolselector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -716,17 +724,13 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mainwindow.py" />
-    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="121" selection-start-line="121" selection-end-line="121" />
+          <folding>
+            <element signature="e#5318#8750#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -737,34 +741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="136" column="67" selection-start-line="136" selection-start-column="67" selection-end-line="136" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/PyQt5/QtWidgets/QApplication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="258" column="8" selection-start-line="258" selection-start-column="8" selection-end-line="258" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/AddTool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="38" column="68" lean-forward="true" selection-start-line="38" selection-start-column="68" selection-end-line="38" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,26 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Camera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/program.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="73" column="93" selection-start-line="73" selection-start-column="93" selection-end-line="73" selection-end-column="93" />
-          <folding>
-            <element signature="e#43#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/runEngine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -819,16 +779,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+    <entry file="file://$PROJECT_DIR$/QtFiles/toolselector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="144">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/PyQt5/QtWidgets/QApplication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="201" column="8" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/AddTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding>
+            <element signature="e#43#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stylesheet.qss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="24" column="45" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="24" selection-end-column="45" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#659#3540#0" />
-            <element signature="e#3629#6087#0" />
-            <element signature="e#8650#11327#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="150" column="63" lean-forward="true" selection-start-line="150" selection-start-column="63" selection-end-line="150" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="161" column="79" selection-start-line="161" selection-start-column="79" selection-end-line="161" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#8650#11327#0" />
+            <element signature="e#11365#14330#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>

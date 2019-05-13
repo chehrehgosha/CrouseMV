@@ -8,44 +8,40 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(341, 484)
-        self.Browse = QtWidgets.QPushButton(Dialog)
-        self.Browse.setGeometry(QtCore.QRect(40, 450, 75, 23))
-        self.Browse.setObjectName("Browse")
-        self.Select = QtWidgets.QPushButton(Dialog)
-        self.Select.setGeometry(QtCore.QRect(140, 450, 75, 23))
-        self.Select.setObjectName("Select")
-        self.Cancel = QtWidgets.QPushButton(Dialog)
-        self.Cancel.setGeometry(QtCore.QRect(240, 450, 75, 23))
-        self.Cancel.setObjectName("Cancel")
-        self.Description = QtWidgets.QGroupBox(Dialog)
+class Ui_Tool_Selector(object):
+    def setupUi(self, Tool_Selector):
+        Tool_Selector.setObjectName("Tool_Selector")
+        Tool_Selector.resize(341, 484)
+        self.Description = QtWidgets.QGroupBox(Tool_Selector)
         self.Description.setGeometry(QtCore.QRect(10, 10, 321, 431))
+        self.Description.setStyleSheet("")
         self.Description.setObjectName("Description")
         self.Icon = QtWidgets.QLabel(self.Description)
-        self.Icon.setScaledContents(True)
-        self.Icon.setGeometry(QtCore.QRect(20, 340, 50, 50))
+        self.Icon.setGeometry(QtCore.QRect(30, 350, 50, 50))
         self.Icon.setMinimumSize(QtCore.QSize(50, 50))
         self.Icon.setObjectName("Icon")
         self.ToolDescription = QtWidgets.QLabel(self.Description)
-        self.ToolDescription.setGeometry(QtCore.QRect(100, 300, 211, 121))
+        self.ToolDescription.setGeometry(QtCore.QRect(100, 340, 211, 81))
         self.ToolDescription.setObjectName("ToolDescription")
         self.treeView = QtWidgets.QTreeView(self.Description)
         self.treeView.setGeometry(QtCore.QRect(20, 20, 281, 311))
         self.treeView.setObjectName("treeView")
+        self.Cancel = QtWidgets.QPushButton(Tool_Selector)
+        self.Cancel.setGeometry(QtCore.QRect(250, 450, 75, 23))
+        self.Cancel.setObjectName("Cancel")
+        self.Select = QtWidgets.QPushButton(Tool_Selector)
+        self.Select.setGeometry(QtCore.QRect(170, 450, 75, 23))
+        self.Select.setObjectName("Select")
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(Tool_Selector)
+        QtCore.QMetaObject.connectSlotsByName(Tool_Selector)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, Tool_Selector):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.Browse.setText(_translate("Dialog", "Browse"))
-        self.Select.setText(_translate("Dialog", "Select"))
-        self.Cancel.setText(_translate("Dialog", "Cancel"))
-        self.Description.setTitle(_translate("Dialog", "Tool Description"))
-        self.Icon.setText(_translate("Dialog", "TextLabel"))
-        self.ToolDescription.setText(_translate("Dialog", "TextLabel"))
+        Tool_Selector.setWindowTitle(_translate("Tool_Selector", "Dialog"))
+        self.Description.setTitle(_translate("Tool_Selector", "Tool Description"))
+        self.Icon.setText(_translate("Tool_Selector", "TextLabel"))
+        self.ToolDescription.setText(_translate("Tool_Selector", "TextLabel"))
+        self.Cancel.setText(_translate("Tool_Selector", "Cancel"))
+        self.Select.setText(_translate("Tool_Selector", "Select"))
 

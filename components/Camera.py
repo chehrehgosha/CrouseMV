@@ -1,11 +1,8 @@
 import ctypes
 
-from PyQt5.QtWidgets import QDialog,QFileSystemModel
-from PyQt5.QtGui import QPixmap
-from QtFiles.toolselector import Ui_Dialog
+
 import os
-import sys
-import importlib.util
+
 import cv2
 # import Tools.ObjectDistance
 
@@ -22,8 +19,11 @@ class Camera:
         self.Capture = cv2.VideoCapture(0)
         while (True):
             ret, frame = self.Capture.read()
-
-            cv2.imshow('frame', frame)
+            winname = "Test"
+            cv2.namedWindow(winname,cv2.WINDOW_NORMAL)  # Create a named window
+            cv2.moveWindow(winname, 25, 260)
+            cv2.resizeWindow(winname,890,400)
+            cv2.imshow(winname, frame)
             if cv2.waitKey(1) & 0xFF == 27:
                 print(os.getcwd()+'/'+target_address)
                 cv2.imwrite(os.getcwd()+'/'+target_address,frame)

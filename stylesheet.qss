@@ -1,0 +1,40 @@
+#Tool_Selector{border: 2px outset #6f7187;}
+QPushButton{
+    background-color: rgb(217, 211, 161);
+}
+QPushButton:hover{
+    background-color: rgb(217, 212, 77);
+}
+
+QScrollArea{
+    border: 1px inset #6f7187;
+    border-radius: 3px;
+}
+QGroupBox{
+    border: 1px outset #6f7187;
+    background-color: white;
+}
+#runButton{
+    background-color: rgb(141, 255, 122);
+}
+#runButton:hover{
+    background-color: rgb(93, 255, 77);
+}
+QToolButton{
+    background-color: rgb(136, 238, 255);
+}
+QToolButton:hover{
+    background-color: rgb(108, 181, 255);
+}
+#Exit_Button{
+    background-color: rgb(255, 116, 126);
+}
+#Exit_Button:hover{
+    background-color: rgb(255, 26, 35);
+}
+QMainWindow{
+        background-color: gainsboro;
+}
+#Logo{
+    background-image: url("/images/CrouseLogo.png");
+}

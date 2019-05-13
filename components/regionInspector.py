@@ -44,7 +44,11 @@ class regionInspector(object):
 
             self.inspectionDialog.show()
             while (1):
-                cv2.imshow('image', self.img2)
+                winname = "Test"
+                cv2.namedWindow(winname, cv2.WINDOW_NORMAL)  # Create a named window
+                cv2.moveWindow(winname, 25, 260)
+                cv2.resizeWindow(winname, 890, 400)
+                cv2.imshow(winname, self.img2)
 
                 k = cv2.waitKey(1) & 0xFF
                 if cv2.getWindowProperty('image',0)== -1:
@@ -88,7 +92,11 @@ class regionInspector(object):
             self.HueLabel.setText('Press R for reset\n')
             self.inspectionDialog.show()
             while (1):
-                cv2.imshow('image', self.img2)
+                winname = "Test"
+                cv2.namedWindow(winname, cv2.WINDOW_NORMAL)  # Create a named window
+                cv2.moveWindow(winname, 25, 260)
+                cv2.resizeWindow(winname, 890, 400)
+                cv2.imshow(winname, self.img2)
 
                 # This is where we get the keyboard input
                 # Then check if it's "m" (if so, toggle the drawing mode)
@@ -134,12 +142,20 @@ class regionInspector(object):
                         cv2.rectangle(overlay, (self.ix, self.iy),
                                       (x,y), (0, 0, 255), 2)
                         cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                        cv2.imshow('image', self.img2)
+                        winname = "Test"
+                        cv2.namedWindow(winname, cv2.WINDOW_NORMAL)  # Create a named window
+                        cv2.moveWindow(winname, 25, 260)
+                        cv2.resizeWindow(winname, 890, 400)
+                        cv2.imshow(winname, self.img2)
                     if self.circRadio.isChecked() is True:
                         cv2.circle(overlay, (self.ix, self.iy),
                                    int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
                         cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                        cv2.imshow('image', self.img2)
+                        winname = "Test"
+                        cv2.namedWindow(winname, cv2.WINDOW_NORMAL)  # Create a named window
+                        cv2.moveWindow(winname, 25, 260)
+                        cv2.resizeWindow(winname, 890, 400)
+                        cv2.imshow(winname, self.img2)
             elif event == cv2.EVENT_LBUTTONUP:
                 if self.drawing == True:
                     if self.rectRadio.isChecked() is True:
@@ -203,7 +219,11 @@ class regionInspector(object):
                     cv2.circle(overlay, (self.ix, self.iy),
                                int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 0, 255), 1)
                     cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
-                    cv2.imshow('image', self.img2)
+                    winname = "Test"
+                    cv2.namedWindow(winname, cv2.WINDOW_NORMAL)  # Create a named window
+                    cv2.moveWindow(winname, 25, 260)
+                    cv2.resizeWindow(winname, 890, 400)
+                    cv2.imshow(winname, self.img2)
 
 
             elif event == cv2.EVENT_LBUTTONUP:
