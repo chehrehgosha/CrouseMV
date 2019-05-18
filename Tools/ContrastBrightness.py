@@ -95,6 +95,7 @@ class Tool(object):
         self.set_attributes()
 
     def camera_source(self):
+        self.ContBrightInit.close()
         globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
         globalVariables.guide_flag.value = 1
         Cam = Camera.Camera()
