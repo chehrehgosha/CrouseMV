@@ -58,7 +58,7 @@ class Tool(object):
             self.roiCheckBox.setChecked(True)
             self.mainLayout.addWidget(self.roiCheckBox)
             # self.firstQbox.setMaximumHeight(70)
-            self.acceptBtn.clicked.connect(self.illuAccepted)
+            self.acceptBtn.clicked.connect(self.toolAccepted)
             self.LEDDetection.exec()
 
         # TODO modify according to input output
@@ -228,7 +228,7 @@ class Tool(object):
             globalVariables.timeLineFlag.value = 1
             self.LEDDetection.close()
 
-    def illuAccepted(self):
+    def toolAccepted(self):
         self.LEDDetection.close()
         originArray = []
         if self.roiCheckBox.isChecked() is True:

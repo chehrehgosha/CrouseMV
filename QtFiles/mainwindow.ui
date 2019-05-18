@@ -328,7 +328,7 @@ Name:</string>
       <x>940</x>
       <y>100</y>
       <width>331</width>
-      <height>481</height>
+      <height>491</height>
      </rect>
     </property>
     <property name="title">
@@ -343,7 +343,7 @@ Name:</string>
        <x>20</x>
        <y>20</y>
        <width>301</width>
-       <height>321</height>
+       <height>381</height>
       </rect>
      </property>
      <property name="widgetResizable">
@@ -355,7 +355,7 @@ Name:</string>
         <x>0</x>
         <y>0</y>
         <width>299</width>
-        <height>319</height>
+        <height>379</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -371,6 +371,35 @@ Name:</string>
        </item>
       </layout>
      </widget>
+    </widget>
+    <widget class="QLabel" name="GuideLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>420</y>
+       <width>301</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="text">
+      <string>Status:
+ Steady</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </widget>
    <widget class="QPushButton" name="RunMode">

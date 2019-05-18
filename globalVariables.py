@@ -10,5 +10,5 @@ global resultPath
 global ChangeColorIndex
 global ChangeColorFlag
 global lock
-global camera_source_flag
-global camera_source_address
+global guide_flag
+global guide_value

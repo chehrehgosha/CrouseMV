@@ -44,7 +44,7 @@ class Tool(object):
             self.acceptBtn.setObjectName('acceptBtn')
             self.mainLayout.addWidget(self.acceptBtn)
             # self.firstQbox.setMaximumHeight(70)
-            self.acceptBtn.clicked.connect(self.illuAccepted)
+            self.acceptBtn.clicked.connect(self.toolAccepted)
             self.GrayScale.exec()
 
 
@@ -81,7 +81,7 @@ class Tool(object):
             self.acceptBtn.setObjectName('acceptBtn')
             self.mainLayout.addWidget(self.acceptBtn)
             # self.firstQbox.setMaximumHeight(70)
-            self.acceptBtn.clicked.connect(self.illuAccepted)
+            self.acceptBtn.clicked.connect(self.toolAccepted)
             self.GrayScale.exec()
 
         elif status == 'run':
@@ -90,7 +90,7 @@ class Tool(object):
             cv2.imwrite(resultPath, img)
             self.report = '* * * * * * * * *\n Gray Scale Tool Done\n\n* * * * * * * * *\n'
 
-    def illuAccepted(self):
+    def toolAccepted(self):
         self.GrayScale.close()
 
 

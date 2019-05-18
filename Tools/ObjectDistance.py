@@ -53,7 +53,7 @@ class Tool(object):
             self.roiCheckBox.setChecked(True)
             self.mainLayout.addWidget(self.roiCheckBox)
             # self.firstQbox.setMaximumHeight(70)
-            self.acceptBtn.clicked.connect(self.illuAccepted)
+            self.acceptBtn.clicked.connect(self.toolAccepted)
             self.ObjectDistance.exec()
 
         # TODO modify according to new tool
@@ -147,7 +147,7 @@ class Tool(object):
             globalVariables.timeLineFlag.value = 1
             self.LEDDetection.close()
 
-    def illuAccepted(self):
+    def toolAccepted(self):
         self.ObjectDistance.close()
 
 

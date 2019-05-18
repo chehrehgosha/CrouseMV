@@ -51,6 +51,8 @@ class Application():
         globalVariables.resultPath = self.manager.Value(value='images/result.jpg', typecode=str)
         globalVariables.ChangeColorIndex = self.manager.Value(value=0, typecode=int)
         globalVariables.ChangeColorFlag = self.manager.Value(value=0, typecode=int)
+        globalVariables.guide_flag = self.manager.Value(value = 0, typecode = int)
+        globalVariables.guide_value = self.manager.Value(value = '', typecode = str)
         self.TestExecutionTimer = QTimer()
         self.TestExecutionTimer.timeout.connect(self.GUIrenderer)
         self.TestExecutionTimer.start(1000)
@@ -158,7 +160,9 @@ class Application():
                 print(globalVariables.toolsListText)
                 self.UI.Report_Label.setText(globalVariables.report.value)
                 globalVariables.reportFlag.value = 0
-
+        if globalVariables.guide_flag.value == 1:
+            self.UI.GuideLabel.setText(globalVariables.guide_value.value)
+            globalVariables.guide_flag.value = 0
 
 
     def timeLineClicked(self):

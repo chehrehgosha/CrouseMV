@@ -62,7 +62,7 @@ class Tool(object):
             self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
             self.roiCheckBox.setChecked(True)
             self.mainLayout.addWidget(self.roiCheckBox)
-            self.acceptBtn.clicked.connect(self.illuAccepted)
+            self.acceptBtn.clicked.connect(self.toolAccepted)
             self.AngleMeasurementTool.exec()
 
         # TODO modify according to new tool
@@ -216,7 +216,7 @@ class Tool(object):
             globalVariables.timeLineFlag.value = 1
             self.LEDDetection.close()
 
-    def illuAccepted(self):
+    def toolAccepted(self):
         self.AngleMeasurementTool.close()
         originArray = []
 

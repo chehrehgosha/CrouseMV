@@ -1,4 +1,4 @@
-#Tool_Selector{border: 2px outset #6f7187;}
+QDialog{border: 2px outset #6f7187;}
 QPushButton{
     background-color: rgb(217, 211, 161);
 }
@@ -37,4 +37,8 @@ QMainWindow{
 }
 #Logo{
     background-image: url("/images/CrouseLogo.png");
+}
+#GuideLabel{
+    background-color: rgba(217, 207, 0, 0.7);
+    border: 2px ridge #6f7187;
 }
