@@ -111,6 +111,7 @@ class Application():
                 item.setStyleSheet("background-color: #fc483f;")
             globalVariables.ChangeColorFlag.value = 0
         if globalVariables.timeLineFlag.value == 1:
+            self.UI.cameraLabel.clear()
             print(globalVariables.toolsListText)
             toolRunnerInstance = Process(target=runEngine, args=(globalVariables.toolsListText,
                                                                  globalVariables.cameraScreenFlag,

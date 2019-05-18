@@ -15,7 +15,6 @@ class Camera:
             os.remove(os.getcwd()+'/'+target_address)
     def setup_capture(self, target_address,lock=None):
 
-        print('11')
         self.Capture = cv2.VideoCapture(0)
         while (True):
             ret, frame = self.Capture.read()
@@ -29,7 +28,6 @@ class Camera:
                 cv2.imwrite(os.getcwd()+'/'+target_address,frame)
                 cv2.destroyAllWindows()
                 break
-        print('22')
     def run_capture(self,target_address):
         self.Capture = cv2.VideoCapture(0)
         while (self.x < 5):

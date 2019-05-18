@@ -1,13 +1,14 @@
-import random
-import time
+
 from PyQt5.QtCore import Qt
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
-    QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit,QFileDialog
+from PyQt5 import QtCore,QtWidgets
+from PyQt5.QtWidgets import QDialog, QFileDialog, QHBoxLayout, QPushButton
 from PyQt5.QtGui import QPixmap
 import cv2,os,globalVariables
-from components import regionInspector
 import numpy as np
+
+from components import Camera
+
+
 class Tool(object):
     def __init__(self,
                  settings = None,
@@ -17,50 +18,56 @@ class Tool(object):
                  resultPath = None):
 
         if status=='initialize':
-            self.dlg = QFileDialog()
-            self.dlg.setFileMode(QFileDialog.AnyFile)
-            self.dlg.setNameFilters(["Images (*.jpg)"])
-            self.dlg.selectNameFilter("Images (*.jpg)")
+            self.status = status
+            self.ContBrightInit = QDialog()
+            self.mainLayout = QHBoxLayout()
+            self.ContBrightInit.setLayout(self.mainLayout)
 
-            self.dlg.exec()
-            self.filenames = self.dlg.selectedFiles()
-            # while(len(filenames)==0):
-            #     time.sleep(0.01)
-            self.ContBright = QDialog()
-            self.UI = self.Ui_Dialog()
+            self.ImgBtn = QPushButton('Select Existing\n File')
+            self.ImgBtn.setObjectName('StaticImage')
+            self.ImgBtn.setMinimumSize(QtCore.QSize(130, 50))
+            self.mainLayout.addWidget(self.ImgBtn)
+            self.CamBtn = QPushButton('Capture from\n Camera')
+            self.CamBtn.setObjectName('CameraImage')
+            self.CamBtn.setMinimumSize(QtCore.QSize(130, 50))
+            self.mainLayout.addWidget(self.CamBtn)
 
-            self.UI.setupUi(self.ContBright)
-            self.UI.buttonBox.accepted.connect(self.accepted)
-            image = QPixmap(self.filenames[0])
-            image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
-            # self.UI.ChangedLabel.setScaledContents(True)
-            self.UI.ChangedLabel.setPixmap(image)
-            self.UI.ContrastSlider.valueChanged.connect(self.SliderChanged)
-            self.UI.BrightnessSlider.valueChanged.connect(self.SliderChanged)
-            self.ContBright.exec()
+            self.ImgBtn.clicked.connect(self.image_source)
+            self.CamBtn.clicked.connect(self.camera_source)
+            globalVariables.guide_value.value = 'Status:\nChoose one of the options'
+            globalVariables.guide_flag.value = 1
+            self.ContBrightInit.exec()
+
+
+
 
         elif status=='modify':
-            self.dlg = QFileDialog()
-            self.dlg.setFileMode(QFileDialog.AnyFile)
-            self.dlg.setNameFilters(["Images (*.jpg)"])
-            self.dlg.selectNameFilter("Images (*.jpg)")
+            self.status = status
+            self.index = index
+            self.ContBrightInit = QDialog()
+            self.mainLayout = QHBoxLayout()
+            self.ContBrightInit.setLayout(self.mainLayout)
 
-            self.dlg.exec()
-            self.filenames = self.dlg.selectedFiles()
-            # while(len(filenames)==0):
-            #     time.sleep(0.01)
-            self.ContBright = QDialog()
-            self.UI = self.Ui_Dialog()
+            self.ImgBtn = QPushButton('Select Existing\n File')
+            self.ImgBtn.setObjectName('StaticImage')
+            self.ImgBtn.setMinimumSize(QtCore.QSize(130, 50))
+            self.mainLayout.addWidget(self.ImgBtn)
+            self.CamBtn = QPushButton('Capture from\n Camera')
+            self.CamBtn.setObjectName('CameraImage')
+            self.CamBtn.setMinimumSize(QtCore.QSize(130, 50))
+            self.mainLayout.addWidget(self.CamBtn)
+            self.del_btn = QPushButton('Delete Tool')
+            self.del_btn.setObjectName('DelTool')
+            self.del_btn.setMinimumSize(QtCore.QSize(130, 50))
+            self.mainLayout.addWidget(self.del_btn)
 
-            self.UI.setupUi(self.ContBright)
-            self.UI.buttonBox.accepted.connect(self.accepted)
-            image = QPixmap(self.filenames[0])
-            image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
-            # self.UI.ChangedLabel.setScaledContents(True)
-            self.UI.ChangedLabel.setPixmap(image)
-            self.UI.ContrastSlider.valueChanged.connect(self.SliderChanged)
-            self.UI.BrightnessSlider.valueChanged.connect(self.SliderChanged)
-            self.ContBright.exec()
+            self.ImgBtn.clicked.connect(self.image_source)
+            self.CamBtn.clicked.connect(self.camera_source)
+            self.del_btn.clicked.connect(self.accepted)
+            globalVariables.guide_value.value = 'Status:\nChoose one of the options'
+            globalVariables.guide_flag.value = 1
+            self.ContBrightInit.exec()
+
 
         elif status == 'run':
             img = cv2.imread(settings['input'])
@@ -74,6 +81,42 @@ class Tool(object):
             cv2.imwrite('temp/'+settings['output']+'.jpg', img)
             cv2.imwrite(resultPath, img)
             self.report = '* * * * * * * * *\n Brightness/Contrast Tool Done\n\n* * * * * * * * *\n'
+    def image_source(self):
+        self.ContBrightInit.close()
+        globalVariables.guide_value.value = 'Status:\nChoose Desired File'
+        globalVariables.guide_flag.value = 1
+        self.dlg = QFileDialog()
+        self.dlg.setFileMode(QFileDialog.AnyFile)
+        self.dlg.setNameFilters(["Images (*.jpg)"])
+        self.dlg.selectNameFilter("Images (*.jpg)")
+
+        self.dlg.exec()
+        self.filenames = self.dlg.selectedFiles()
+        self.set_attributes()
+
+    def camera_source(self):
+        globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
+        globalVariables.guide_flag.value = 1
+        Cam = Camera.Camera()
+        Cam.setup_capture('temp/temp_image_for_contbri_tool.jpg')
+        Cam.checkFile('temp/temp_image_for_contbri_tool.jpg')
+        self.filenames = []
+        self.filenames.append('temp/temp_image_for_contbri_tool.jpg')
+        self.set_attributes()
+    def set_attributes(self):
+        self.ContBright = QDialog()
+        self.UI = self.Ui_Dialog()
+        globalVariables.guide_value.value = 'Status:\nAdjust Contrast and Brightness'
+        globalVariables.guide_flag.value = 1
+        self.UI.setupUi(self.ContBright)
+        self.UI.buttonBox.accepted.connect(self.accepted)
+        image = QPixmap(self.filenames[0])
+        image = image.scaled(self.UI.ChangedLabel.width(), self.UI.ChangedLabel.height(), Qt.KeepAspectRatio)
+        # self.UI.ChangedLabel.setScaledContents(True)
+        self.UI.ChangedLabel.setPixmap(image)
+        self.UI.ContrastSlider.valueChanged.connect(self.SliderChanged)
+        self.UI.BrightnessSlider.valueChanged.connect(self.SliderChanged)
+        self.ContBright.exec()
 
     def SliderChanged(self):
         img = cv2.imread(self.filenames[0])
@@ -91,17 +134,39 @@ class Tool(object):
         self.UI.ChangedLabel.setPixmap(image)
 
     def accepted(self):
-        img = cv2.imread('temp/X.jpg')
-        cv2.imwrite('temp/'+self.UI.OutputName.text()+'.jpg',img)
-        self.ContBright.close()
-        globalVariables.toolsListText.append({'toolType': 'ContBright',
-                                                     'filePath': os.path.abspath(__file__),
-                                                     'fileName': os.path.basename(__file__),
-                                                     'brightness':self.UI.BrightnessSlider.value(),
-                                                     'contrast':self.UI.ContrastSlider.value(),
-                                                     'output': self.UI.ChangedLabel.text(),
-                                                     'input':self.filenames[0]})
-        globalVariables.timeLineFlag.value = 1
+        self.ContBrightInit.close()
+        button = self.mainLayout.sender()
+        if button.objectName() == 'DelTool':
+            del globalVariables.toolsListText[self.index]
+            globalVariables.timeLineFlag.value = 1
+        elif self.status is 'modify':
+            globalVariables.guide_value.value = 'Status:\n-'
+            globalVariables.guide_flag.value = 1
+            img = cv2.imread('temp/X.jpg')
+            cv2.imwrite('temp/' + self.UI.OutputName.text() + '.jpg', img)
+            self.ContBright.close()
+            globalVariables.toolsListText[self.index] = {'toolType': 'ContBright',
+                                                  'filePath': os.path.abspath(__file__),
+                                                  'fileName': os.path.basename(__file__),
+                                                  'brightness': self.UI.BrightnessSlider.value(),
+                                                  'contrast': self.UI.ContrastSlider.value(),
+                                                  'output': self.UI.ChangedLabel.text(),
+                                                  'input': self.filenames[0]}
+            globalVariables.timeLineFlag.value = 1
+        elif self.status is 'initialize':
+            globalVariables.guide_value.value = 'Status:\n-'
+            globalVariables.guide_flag.value = 1
+            img = cv2.imread('temp/X.jpg')
+            cv2.imwrite('temp/' + self.UI.OutputName.text() + '.jpg', img)
+            self.ContBright.close()
+            globalVariables.toolsListText.append({'toolType': 'ContBright',
+                                                         'filePath': os.path.abspath(__file__),
+                                                         'fileName': os.path.basename(__file__),
+                                                         'brightness': self.UI.BrightnessSlider.value(),
+                                                         'contrast': self.UI.ContrastSlider.value(),
+                                                         'output': self.UI.ChangedLabel.text(),
+                                                         'input': self.filenames[0]})
+            globalVariables.timeLineFlag.value = 1
 
     class Ui_Dialog(object):
         def setupUi(self, Dialog):

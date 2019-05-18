@@ -30,12 +30,12 @@
           <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/program.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+                <state relative-caret-position="1550">
+                  <caret line="112" column="51" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
                   <folding>
                     <element signature="e#44#54#0" expanded="true" />
                     <element signature="e#4915#5471#0" />
-                    <element signature="e#5536#7938#0" />
+                    <element signature="e#5571#7973#0" />
                     <element signature="e#8007#8270#0" />
                     <element signature="e#8337#8501#0" />
                   </folding>
@@ -43,16 +43,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+          <file leaf-file-name="ContrastBrightness.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Tools/ContrastBrightness.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="337">
-                  <caret line="125" column="60" selection-start-line="125" selection-start-column="60" selection-end-line="125" selection-end-column="60" />
+                <state relative-caret-position="51">
+                  <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
                   <folding>
-                    <element signature="e#0#126#0" expanded="true" />
-                    <element signature="e#5888#8385#0" />
-                    <element signature="e#10745#12969#0" />
+                    <element signature="e#2696#3235#0" />
+                    <element signature="e#3274#3883#0" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mainwindow.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
                 </state>
               </provider>
             </entry>
@@ -76,23 +84,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="244" selection-start-line="244" selection-end-line="244" />
-                  <folding>
-                    <element signature="e#0#126#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="265" column="8" lean-forward="true" selection-start-line="265" selection-start-column="8" selection-end-line="265" selection-end-column="46" />
+                <state relative-caret-position="316">
+                  <caret line="191" column="63" lean-forward="true" selection-start-line="187" selection-start-column="16" selection-end-line="191" selection-end-column="63" />
                   <folding>
                     <element signature="e#0#126#0" expanded="true" />
                   </folding>
@@ -184,19 +180,19 @@
         <option value="$PROJECT_DIR$/Tools/ObjectDistance.py" />
         <option value="$PROJECT_DIR$/QtFiles/contrast_brightness.py" />
         <option value="$PROJECT_DIR$/Tools/GrayScale.py" />
-        <option value="$PROJECT_DIR$/Tools/ContrastBrightness.py" />
         <option value="$PROJECT_DIR$/Tools/BinaryMask.py" />
         <option value="$PROJECT_DIR$/QtFiles/mainwindow.py" />
         <option value="$PROJECT_DIR$/components/runEngine.py" />
         <option value="$PROJECT_DIR$/QtFiles/toolselector.py" />
         <option value="$PROJECT_DIR$/components/AddTool.py" />
-        <option value="$PROJECT_DIR$/components/Camera.py" />
         <option value="$PROJECT_DIR$/globalVariables.py" />
         <option value="$PROJECT_DIR$/stylesheet.qss" />
         <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
-        <option value="$PROJECT_DIR$/program.py" />
         <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
+        <option value="$PROJECT_DIR$/program.py" />
+        <option value="$PROJECT_DIR$/components/Camera.py" />
+        <option value="$PROJECT_DIR$/Tools/ContrastBrightness.py" />
       </list>
     </option>
   </component>
@@ -435,6 +431,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.44107142" side_tool="true" weight="0.34033614" />
@@ -475,13 +472,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Tools/PatternCheckTool.py</url>
-          <line>244</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -489,11 +479,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="38" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testt.py" />
     <entry file="file://$PROJECT_DIR$/TEST/rotate.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -697,13 +686,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mainwindow.py" />
-    <entry file="file://$PROJECT_DIR$/Tools/ContrastBrightness.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -746,23 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Camera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QtFiles/toolselector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
@@ -794,20 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/program.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-          <folding>
-            <element signature="e#44#54#0" expanded="true" />
-            <element signature="e#4915#5471#0" />
-            <element signature="e#5536#7938#0" />
-            <element signature="e#8007#8270#0" />
-            <element signature="e#8337#8501#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-235">
@@ -832,22 +783,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="265" column="8" lean-forward="true" selection-start-line="265" selection-start-column="8" selection-end-line="265" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="244" selection-start-line="244" selection-end-line="244" />
           <folding>
             <element signature="e#0#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/PyQt5/QtCore/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1550">
+          <caret line="112" column="51" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
+          <folding>
+            <element signature="e#44#54#0" expanded="true" />
+            <element signature="e#4915#5471#0" />
+            <element signature="e#5571#7973#0" />
+            <element signature="e#8007#8270#0" />
+            <element signature="e#8337#8501#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="191" column="63" lean-forward="true" selection-start-line="187" selection-start-column="16" selection-end-line="191" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/ContrastBrightness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding>
+            <element signature="e#2696#3235#0" />
+            <element signature="e#3274#3883#0" />
           </folding>
         </state>
       </provider>
