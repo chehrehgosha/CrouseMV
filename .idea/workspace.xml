@@ -24,7 +24,7 @@
     <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.71518105">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
@@ -52,29 +52,37 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="regionInspector.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="95" column="50" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="50" />
+                <state relative-caret-position="496">
+                  <caret line="171" column="107" selection-start-line="171" selection-start-column="107" selection-end-line="171" selection-end-column="107" />
+                  <caret line="168" column="104" selection-start-line="168" selection-start-column="104" selection-end-line="168" selection-end-column="104" />
+                  <caret line="170" column="48" selection-start-line="170" selection-start-column="48" selection-end-line="170" selection-end-column="48" />
                   <folding>
-                    <element signature="e#360#2926#0" />
+                    <element signature="e#2986#4669#0" />
                     <element signature="e#4720#5091#0" />
-                    <element signature="e#5198#9921#0" />
-                    <element signature="e#9981#11282#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="BinaryMask.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ObjectDistance.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="632">
+                  <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BinaryMask.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Tools/BinaryMask.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="147" column="43" lean-forward="true" selection-start-line="147" selection-start-column="43" selection-end-line="147" selection-end-column="43" />
+                <state relative-caret-position="-696">
+                  <caret line="112" column="44" selection-start-line="112" selection-start-column="44" selection-end-line="112" selection-end-column="44" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
-                    <element signature="e#2819#3165#0" />
                   </folding>
                 </state>
               </provider>
@@ -84,14 +92,48 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="ContrastBrightness.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Tools/ContrastBrightness.py">
+          <file leaf-file-name="LEDDetection.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-238">
-                  <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+                <state relative-caret-position="289">
+                  <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
                   <folding>
-                    <element signature="e#1#28#0" expanded="true" />
+                    <element signature="e#5318#8750#0" />
+                    <element signature="e#8915#11268#0" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PatternCheckTool.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="205">
+                  <caret line="177" column="148" selection-start-line="177" selection-start-column="142" selection-end-line="177" selection-end-column="148" />
+                  <folding>
+                    <element signature="e#0#126#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AngleMeasurement.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="547">
+                  <caret line="194" column="35" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="35" />
+                  <folding>
+                    <element signature="e#0#126#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test.txt" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="615">
+                  <caret line="44" column="91" lean-forward="true" selection-start-line="16" selection-end-line="44" selection-end-column="91" />
                 </state>
               </provider>
             </entry>
@@ -109,8 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CheckColo</find>
-      <find>drawcon</find>
       <find>draw</find>
       <find>imwrite</find>
       <find>255</find>
@@ -139,6 +179,8 @@
       <find>illuAccepted</find>
       <find>roiCheckBox</find>
       <find>winname</find>
+      <find>ord</find>
+      <find>format</find>
     </findStrings>
     <replaceStrings>
       <replace>cv2</replace>
@@ -176,7 +218,6 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/Tools/Aligner.py" />
         <option value="$PROJECT_DIR$/components/addTool.py" />
-        <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
         <option value="$PROJECT_DIR$/Tools/ObjectDistance.py" />
         <option value="$PROJECT_DIR$/QtFiles/contrast_brightness.py" />
         <option value="$PROJECT_DIR$/Tools/GrayScale.py" />
@@ -187,12 +228,14 @@
         <option value="$PROJECT_DIR$/globalVariables.py" />
         <option value="$PROJECT_DIR$/stylesheet.qss" />
         <option value="$PROJECT_DIR$/Tools/PatternCheckTool.py" />
-        <option value="$PROJECT_DIR$/components/regionInspector.py" />
         <option value="$PROJECT_DIR$/Tools/AngleMeasurement.py" />
         <option value="$PROJECT_DIR$/program.py" />
         <option value="$PROJECT_DIR$/components/Camera.py" />
         <option value="$PROJECT_DIR$/Tools/ContrastBrightness.py" />
         <option value="$PROJECT_DIR$/Tools/BinaryMask.py" />
+        <option value="$PROJECT_DIR$/Tools/LEDDetection.py" />
+        <option value="$PROJECT_DIR$/test.txt" />
+        <option value="$PROJECT_DIR$/components/regionInspector.py" />
       </list>
     </option>
   </component>
@@ -439,7 +482,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" weight="0.33088234" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32938644" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8011905" weight="0.25941873" />
-      <window_info active="true" anchor="bottom" x="-38" y="379" width="1679" height="252" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.25618947" />
+      <window_info active="true" anchor="bottom" x="-38" y="379" width="1679" height="252" id="Terminal" order="11" sideWeight="0.55892855" visible="true" weight="0.2497309" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12224939" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
@@ -482,9 +525,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TEST/rotate.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/temp/pattern.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -630,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/553425644/PyQt5/QtCore/Qt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -751,27 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-235">
-          <caret line="188" column="33" lean-forward="true" selection-start-line="188" selection-start-column="33" selection-end-line="188" selection-end-column="33" />
-          <folding>
-            <element signature="e#5318#8750#0" />
-            <element signature="e#8915#11268#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="244" selection-start-line="244" selection-end-line="244" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QtFiles/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -792,26 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/ContrastBrightness.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-          <folding>
-            <element signature="e#1#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1115">
-          <caret line="199" lean-forward="true" selection-start-line="199" selection-end-line="199" />
-          <folding>
-            <element signature="e#0#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/program.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -826,26 +818,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+    <entry file="file://$PROJECT_DIR$/Tools/ContrastBrightness.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="95" column="50" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="50" />
+        <state relative-caret-position="289">
+          <caret line="110" column="44" lean-forward="true" selection-start-line="109" selection-start-column="8" selection-end-line="110" selection-end-column="44" />
           <folding>
-            <element signature="e#360#2926#0" />
-            <element signature="e#4720#5091#0" />
-            <element signature="e#5198#9921#0" />
-            <element signature="e#9981#11282#0" />
+            <element signature="e#1#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/BinaryMask.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="147" column="43" lean-forward="true" selection-start-line="147" selection-start-column="43" selection-end-line="147" selection-end-column="43" />
+        <state relative-caret-position="-696">
+          <caret line="112" column="44" selection-start-line="112" selection-start-column="44" selection-end-line="112" selection-end-column="44" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#2819#3165#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/AngleMeasurement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="194" column="35" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/PatternCheckTool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="177" column="148" selection-start-line="177" selection-start-column="142" selection-end-line="177" selection-end-column="148" />
+          <folding>
+            <element signature="e#0#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/ObjectDistance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/LEDDetection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding>
+            <element signature="e#5318#8750#0" />
+            <element signature="e#8915#11268#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="44" column="91" lean-forward="true" selection-start-line="16" selection-end-line="44" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/regionInspector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="171" column="107" selection-start-line="171" selection-start-column="107" selection-end-line="171" selection-end-column="107" />
+          <caret line="168" column="104" selection-start-line="168" selection-start-column="104" selection-end-line="168" selection-end-column="104" />
+          <caret line="170" column="48" selection-start-line="170" selection-start-column="48" selection-end-line="170" selection-end-column="48" />
+          <folding>
+            <element signature="e#2986#4669#0" />
+            <element signature="e#4720#5091#0" />
           </folding>
         </state>
       </provider>

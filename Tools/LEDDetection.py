@@ -22,7 +22,7 @@ class Tool(object):
             self.secondQbox.setLayout(self.layout2)
             self.layout2.addWidget(QLabel("Input File Name:"))
             self.layout2.setStretch(0, 1)
-            self.InputFile = QLineEdit('board.jpg')
+            self.InputFile = QLineEdit('H.jpg')
             self.InputFile.setObjectName('InputFile')
             self.layout2.addWidget(self.InputFile)
             self.layout2.setStretch(1, 1)

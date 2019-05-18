@@ -109,7 +109,8 @@ class Tool(object):
     def set_attributes(self):
         self.BinaryMask = QDialog()
         self.UI = self.Ui_Dialog()
-
+        globalVariables.guide_value.value = 'Status:\nAdjust Contrast and Brightness'
+        globalVariables.guide_flag.value = 1
         self.UI.setupUi(self.BinaryMask)
         self.UI.buttonBox.accepted.connect(self.accepted)
         image = QPixmap(self.filenames[0])
