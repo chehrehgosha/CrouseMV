@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
     QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit
 import cv2,os,globalVariables
-from components import regionInspector
+from components import regionInspector,Camera
 import numpy as np
 import math
 class Tool(object):
@@ -59,9 +59,9 @@ class Tool(object):
             self.acceptBtn = QPushButton('Accept')
             self.acceptBtn.setObjectName('acceptBtn')
             self.mainLayout.addWidget(self.acceptBtn)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
-            self.roiCheckBox.setChecked(True)
-            self.mainLayout.addWidget(self.roiCheckBox)
+            self.CameraCheckBox = QCheckBox('Do you want to use Camera as source of input?')
+            self.CameraCheckBox.setChecked(True)
+            self.mainLayout.addWidget(self.CameraCheckBox)
             self.acceptBtn.clicked.connect(self.toolAccepted)
             self.AngleMeasurementTool.exec()
 
@@ -119,15 +119,20 @@ class Tool(object):
             self.deleteBtn = QPushButton('Delete')
             self.deleteBtn.setObjectName('deleteBtn')
             self.mainLayout.addWidget(self.deleteBtn)
-            # self.firstQbox.setMaximumHeight(70)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
-            self.mainLayout.addWidget(self.roiCheckBox)
+            self.CameraCheckBox = QCheckBox('Do you want to use Camera as source of input?')
+            self.CameraCheckBox.setChecked(True)
+            self.mainLayout.addWidget(self.CameraCheckBox)
             self.acceptBtn.clicked.connect(self.toolModified)
             self.deleteBtn.clicked.connect(self.toolModified)
             self.AngleMeasurementTool.exec()
         #TODO get yourself together
         elif status == 'run':
-
+            globalVariables.guide_value.value = 'Status:\nRunning'
+            globalVariables.guide_flag.value = 1
+            if settings['camera'] is True:
+                Cam = Camera.Camera()
+                Cam.run_capture('temp/' + settings['input'])
+                Cam.checkFile('temp/' + settings['input'])
             im = cv2.imread('temp/' + settings['input'])
             self.MainMask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
 
@@ -171,82 +176,91 @@ class Tool(object):
                 self.report = '* * * * * * * * **\n Angle\t Status\n' + str("{0:.2f}".format(math.degrees(angle))) + ' \tNot Founded\n\n* * * * * * * * *\n'
             cv2.imwrite('temp/' + settings['output'], im)
             cv2.imwrite(resultPath, im)
+            globalVariables.guide_value.value = 'Status:\n -'
+            globalVariables.guide_flag.value = 1
 
-    # TODO modify according to new tool
+
     def toolModified(self):
         self.AngleMeasurementTool.close()
         button = self.mainLayout.sender()
         if button.objectName() == 'acceptBtn':
-            self.AngleMeasurementTool.close()
+            if self.CameraCheckBox.isChecked() is True:
+                globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
+                globalVariables.guide_flag.value = 1
+                Cam = Camera.Camera()
+                Cam.setup_capture('temp/' + self.TargetFile.text())
+                Cam.checkFile('temp/' + self.TargetFile.text())
             originArray = []
 
             inspectorModule = regionInspector.regionInspector(originArray, 'temp/' + self.TargetFile.text(),
                                                               'AngleMeasurement')
             originArray = inspectorModule.getOriginArray()
 
-            if len(originArray) is not 0:
+            if self.CameraCheckBox.isChecked() is True:
 
                 globalVariables.toolsListText[self.index]={'toolType': 'AngleMeasurementTool',
-                                                      # 'illumination':str(illuPercent),
                                                       'filePath': os.path.abspath(__file__),
                                                       'fileName': os.path.basename(__file__),
                                                       'inspection': True,
                                                       'region': originArray,
-                                                      # 'line_length':Diagonal,
-                                                      # 'accuracy':float(self.AccuracyLine.text()),
-                                                      # 'HSVValues':self.Values,
                                                       'output': self.OutputFile.text(),
                                                       'input': self.TargetFile.text(),
                                                       'min_angle': self.MinDegree.text(),
-                                                      'max_angle': self.MaxDegree.text()}
+                                                      'max_angle': self.MaxDegree.text(),
+                                                      'camera': True}
             else:
                 globalVariables.toolsListText[self.index]={'toolType': 'AngleMeasurementTool',
-                                                      # 'illumination': str(illuPercent),
                                                       'filePath': os.path.abspath(__file__),
                                                       'fileName': os.path.basename(__file__),
-                                                      'inspection': False,
-                                                      # 'region': originArray,
+                                                      'inspection': True,
+                                                      'region': originArray,
                                                       'output': self.OutputFile.text(),
-                                                      'input': self.InputFile.text(),
-                                                      'pattern_name': self.PatternName.text()}
+                                                      'input': self.TargetFile.text(),
+                                                      'min_angle': self.MinDegree.text(),
+                                                      'max_angle': self.MaxDegree.text(),
+                                                      'camera': False}
             globalVariables.timeLineFlag.value = 1
 
         elif button.objectName() == 'deleteBtn':
             del globalVariables.toolsListText[self.index]
             globalVariables.timeLineFlag.value = 1
-            self.LEDDetection.close()
+            self.AngleMeasurementTool.close()
 
     def toolAccepted(self):
         self.AngleMeasurementTool.close()
+        if self.CameraCheckBox.isChecked() is True:
+            globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
+            globalVariables.guide_flag.value = 1
+            Cam = Camera.Camera()
+            Cam.setup_capture('temp/' + self.TargetFile.text())
+            Cam.checkFile('temp/' + self.TargetFile.text())
         originArray = []
 
         inspectorModule = regionInspector.regionInspector(originArray, 'temp/' + self.TargetFile.text(),
                                                           'AngleMeasurement')
         originArray = inspectorModule.getOriginArray()
 
-        if len(originArray) is not 0:
+        if self.CameraCheckBox.isChecked() is True:
 
             globalVariables.toolsListText.append({'toolType':'AngleMeasurementTool',
-                                                  # 'illumination':str(illuPercent),
                                                   'filePath':os.path.abspath(__file__),
                                                   'fileName':os.path.basename(__file__),
                                                   'inspection':True,
                                                   'region':originArray,
-                                                  # 'line_length':Diagonal,
-                                                  # 'accuracy':float(self.AccuracyLine.text()),
-                                                  # 'HSVValues':self.Values,
                                                   'output':self.OutputFile.text(),
                                                   'input':self.TargetFile.text(),
                                                   'min_angle':self.MinDegree.text(),
-                                                  'max_angle':self.MaxDegree.text()})
+                                                  'max_angle':self.MaxDegree.text(),
+                                                  'camera':True})
         else:
-            globalVariables.toolsListText.append({'toolType': 'AngleMeasurementTool',
-                                                  # 'illumination': str(illuPercent),
-                                                  'filePath': os.path.abspath(__file__),
-                                                  'fileName': os.path.basename(__file__),
-                                                  'inspection': False,
-                                                  # 'region': originArray,
+            globalVariables.toolsListText.append({'toolType':'AngleMeasurementTool',
+                                                  'filePath':os.path.abspath(__file__),
+                                                  'fileName':os.path.basename(__file__),
+                                                  'inspection':True,
+                                                  'region':originArray,
                                                   'output':self.OutputFile.text(),
-                                                  'input':self.InputFile.text(),
-                                                  'pattern_name': self.PatternName.text()})
+                                                  'input':self.TargetFile.text(),
+                                                  'min_angle':self.MinDegree.text(),
+                                                  'max_angle':self.MaxDegree.text(),
+                                                  'camera':False})
         globalVariables.timeLineFlag.value = 1

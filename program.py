@@ -1,23 +1,17 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-import ctypes
 import sys
 import PyQt5
-from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton,QFileDialog,QDialog,QToolButton
+from PyQt5.QtWidgets import QApplication, QMainWindow,QFileDialog,QDialog,QToolButton
 from PyQt5.QtGui import QPixmap,QIcon
-from PyQt5.QtCore import QTimer,QSize,Qt,QFile
-
+from PyQt5.QtCore import QTimer,QSize,Qt
 from components.AddTool import addTool
 from QtFiles.mainwindow import Ui_MainWindow
 from QtFiles.runscreen import Ui_Dialog as Ui_RunMode
 from components.runEngine import runEngine
-from multiprocessing import Process, Manager, Lock
-# from threading import Lock
+from multiprocessing import Process, Manager
 import importlib.util
 import globalVariables
-import threading
-# from gi.repository import Gtk
-# import pygtk, gtk, gobject
 class Application():
     def __init__(self):
 
