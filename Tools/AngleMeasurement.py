@@ -185,8 +185,7 @@ class Tool(object):
         button = self.mainLayout.sender()
         if button.objectName() == 'acceptBtn':
             if self.CameraCheckBox.isChecked() is True:
-                globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
-                globalVariables.guide_flag.value = 1
+
                 Cam = Camera.Camera()
                 Cam.setup_capture('temp/' + self.TargetFile.text())
                 Cam.checkFile('temp/' + self.TargetFile.text())
@@ -229,8 +228,7 @@ class Tool(object):
     def toolAccepted(self):
         self.AngleMeasurementTool.close()
         if self.CameraCheckBox.isChecked() is True:
-            globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
-            globalVariables.guide_flag.value = 1
+
             Cam = Camera.Camera()
             Cam.setup_capture('temp/' + self.TargetFile.text())
             Cam.checkFile('temp/' + self.TargetFile.text())

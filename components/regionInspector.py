@@ -23,9 +23,7 @@ class regionInspector(object):
             cv2.namedWindow(self.winname, cv2.WINDOW_NORMAL)  # Create a named window
             cv2.setMouseCallback(self.winname, self.draw_circle)
 
-            globalVariables.guide_value.value = 'Status:\nDraw the intersecting Circles\n' \
-                                                'Press R to reset\n' \
-                                                'Press Esc to finish'
+            globalVariables.guide_value.value = 'Status:\nPress S to Start'
             globalVariables.guide_flag.value = 1
             self.rectangle = False
             self.circle = False
@@ -47,12 +45,20 @@ class regionInspector(object):
                     self.img2 = self.img.copy()
                     cv2.setMouseCallback(self.winname, self.draw_circle)
                     self.originArray = []
-                elif k == ord('a'):
+                    self.rectangle = True
+                    self.circle = False
+                    globalVariables.guide_value.value ='Status:\nDraw a rectangle' \
+                                                        '\nfor your region of interest' \
+                                                        '\n Press R to reset'
+                    globalVariables.guide_flag.value = 1
+                elif k == ord('s'):
                     self.circle = False
                     self.rectangle = True
-                elif k == ord('b'):
-                    self.rectangle = False
-                    self.circle = True
+                    globalVariables.guide_value.value = 'Status:\nDraw a rectangle' \
+                                                        '\nfor your region of interest' \
+                                                        '\n Press R to reset'
+                    globalVariables.guide_flag.value = 1
+
                 elif k == 27:
                     cv2.destroyWindow(self.winname)
                     break
@@ -129,6 +135,7 @@ class regionInspector(object):
                                       (x, y), (0, 0, 255), 2)
                         cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img2)
                         cv2.imshow(self.winname, self.img2)
+
                     elif self.circle == True:
                         cv2.circle(overlay, (self.ix, self.iy),
                                    int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
@@ -146,6 +153,12 @@ class regionInspector(object):
                     # param[0] = True
                     self.originArray.append({'style': 'rect',
                                              'coordinates': [self.ix, self.iy, x, y]})
+                    self.rectangle =False
+                    self.circle = True
+                    globalVariables.guide_value.value = 'Status:\nDraw a circle' \
+                                                        '\nto specify the LED' \
+                                                        '\n Press R to reset'
+                    globalVariables.guide_flag.value = 1
                 elif self.circle == True:
                     mask = np.zeros((self.img.shape[0], self.img.shape[1]), dtype=np.uint8)
 
@@ -178,6 +191,8 @@ class regionInspector(object):
                     cv2.circle(overlay, (self.ix, self.iy),
                                int(math.sqrt((self.ix - x) ** 2 + (self.iy - y) ** 2)), (0, 255, 0), 2)
                     cv2.addWeighted(overlay, alpha, output, 1 - alpha, 0, self.img)
+                    self.circle = False
+
         if self.Module is 'AngleMeasurement':
             # global ix, iy, drawing, mode, overlay, output, alpha
             overlay = self.img.copy()

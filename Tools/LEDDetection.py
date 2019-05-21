@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QDialog,QVBoxLayout,QPushButton,\
     QSpacerItem,QGroupBox,QLabel,QCheckBox,QHBoxLayout,QLineEdit
 import cv2,os,globalVariables
+from components import Camera
 from components import regionInspector
 import numpy as np
 class Tool(object):
@@ -54,14 +55,14 @@ class Tool(object):
             self.acceptBtn = QPushButton('Accept')
             self.acceptBtn.setObjectName('acceptBtn')
             self.mainLayout.addWidget(self.acceptBtn)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
-            self.roiCheckBox.setChecked(True)
-            self.mainLayout.addWidget(self.roiCheckBox)
+            self.CameraCheckBox = QCheckBox('Do you want to use Camera as source of input?')
+            self.CameraCheckBox.setChecked(True)
+            self.mainLayout.addWidget(self.CameraCheckBox)
             # self.firstQbox.setMaximumHeight(70)
             self.acceptBtn.clicked.connect(self.toolAccepted)
             self.LEDDetection.exec()
 
-        # TODO modify according to input output
+
         elif status=='modify':
             self.settings = settings
             self.index = index
@@ -70,14 +71,13 @@ class Tool(object):
             self.mainLayout = QVBoxLayout()
             self.LEDDetection.setLayout(self.mainLayout)
 
-
             self.secondQbox = QGroupBox("Input settings")
             self.mainLayout.addWidget(self.secondQbox)
             self.layout2 = QHBoxLayout()
             self.secondQbox.setLayout(self.layout2)
             self.layout2.addWidget(QLabel("Input File Name:"))
             self.layout2.setStretch(0, 1)
-            self.InputFile = QLineEdit()
+            self.InputFile = QLineEdit('H.jpg')
             self.InputFile.setObjectName('InputFile')
             self.layout2.addWidget(self.InputFile)
             self.layout2.setStretch(1, 1)
@@ -86,10 +86,10 @@ class Tool(object):
             self.mainLayout.addWidget(self.thirdQbox)
             self.layout3 = QHBoxLayout()
             self.thirdQbox.setLayout(self.layout3)
-            self.layout3.addWidget(QLabel("Input File Name:"))
+            self.layout3.addWidget(QLabel("Output File Name:"))
             self.layout3.setStretch(0, 1)
-            self.OutputFile = QLineEdit()
-            self.OutputFile.setObjectName('InputFile')
+            self.OutputFile = QLineEdit('result.jpg')
+            self.OutputFile.setObjectName('OutputFile')
             self.layout3.addWidget(self.OutputFile)
             self.layout3.setStretch(1, 1)
 
@@ -99,7 +99,7 @@ class Tool(object):
             self.fourthQbox.setLayout(self.layout4)
             self.layout4.addWidget(QLabel("LED Name:"))
             self.layout4.setStretch(0, 1)
-            self.LEDName = QLineEdit()
+            self.LEDName = QLineEdit('1')
             self.LEDName.setObjectName('LED Name')
             self.layout4.addWidget(self.LEDName)
             self.layout4.setStretch(1, 1)
@@ -109,17 +109,20 @@ class Tool(object):
             self.acceptBtn = QPushButton('Accept')
             self.acceptBtn.setObjectName('acceptBtn')
             self.mainLayout.addWidget(self.acceptBtn)
-            self.deleteBtn = QPushButton('Delete')
-            self.deleteBtn.setObjectName('deleteBtn')
-            self.mainLayout.addWidget(self.deleteBtn)
+            self.CameraCheckBox = QCheckBox('Do you want to use Camera as source of input?')
+            self.CameraCheckBox.setChecked(True)
+            self.mainLayout.addWidget(self.CameraCheckBox)
             # self.firstQbox.setMaximumHeight(70)
-            self.roiCheckBox = QCheckBox('Do you want to define ROI? (Region of Interest)')
-            self.mainLayout.addWidget(self.roiCheckBox)
-            self.acceptBtn.clicked.connect(self.toolModified)
-            self.deleteBtn.clicked.connect(self.toolModified)
+            self.acceptBtn.clicked.connect(self.toolAccepted)
             self.LEDDetection.exec()
 
         elif status == 'run':
+            globalVariables.guide_value.value = 'Status:\nRunning'
+            globalVariables.guide_flag.value = 1
+            if settings['camera'] is True:
+                Cam = Camera.Camera()
+                Cam.run_capture('temp/' + settings['input'])
+                Cam.checkFile('temp/' + settings['input'])
             im = cv2.imread('temp/'+settings['input'])
             imgray = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
 
@@ -137,6 +140,7 @@ class Tool(object):
 
                 for x in range(RectCoordinates[0]+CircleCoordinates[2],RectCoordinates[2]-CircleCoordinates[2]):
                     for y in range(RectCoordinates[1] + CircleCoordinates[2],RectCoordinates[3] - CircleCoordinates[2]):
+
                         mask = np.zeros((im.shape[0], im.shape[1]), dtype=np.uint8)
                         cv2.circle(mask,
                                    (x, y),
@@ -157,6 +161,8 @@ class Tool(object):
                                 if  Vmean[0] > int(settings['HSVValues'][4]) and Vmean[0] < int(settings['HSVValues'][5]):
                                     self.MainMask = cv2.bitwise_or(self.MainMask, mask)
                                     found = 1
+                globalVariables.guide_value.value = 'Status:\n -'
+                globalVariables.guide_flag.value = 1
                 if found is 0:
                     self.report = '* * * * * * * * *\n LED \tStatus\n' + settings['led_name']+ ' \tNot Found\n\n* * * * * * * * *\n'
                 else:
@@ -182,13 +188,13 @@ class Tool(object):
                     cv2.imwrite('temp/' + settings['output'], im)
                     cv2.imwrite(resultPath, im)
                     self.report = '* * * * * * * * *\n LED\tStatus\n' + settings['led_name']+ ' \tFound\n\n* * * * * * * * *\n'
-
+    #TODO must be edited
     def toolModified(self):
         self.LEDDetection.close()
         button = self.mainLayout.sender()
         if button.objectName() == 'acceptBtn':
             originArray=[]
-            if self.roiCheckBox.isChecked() is True:
+            if self.CameraCheckBox.isChecked() is True:
                 inspectorModule = regionInspector.regionInspector(originArray, 'temp/' + self.InputFile.text(),'LedDetector')
                 originArray = inspectorModule.getOriginArray()
 
@@ -231,9 +237,14 @@ class Tool(object):
     def toolAccepted(self):
         self.LEDDetection.close()
         originArray = []
-        if self.roiCheckBox.isChecked() is True:
-            inspectorModule = regionInspector.regionInspector(originArray, 'temp/'+self.InputFile.text(),module='LedDetector')
-            originArray = inspectorModule.getOriginArray()
+        if self.CameraCheckBox.isChecked() is True:
+
+            Cam = Camera.Camera()
+            Cam.setup_capture('temp/' + self.InputFile.text())
+            Cam.checkFile('temp/' + self.InputFile.text())
+
+        inspectorModule = regionInspector.regionInspector(originArray, 'temp/'+self.InputFile.text(),module='LedDetector')
+        originArray = inspectorModule.getOriginArray()
         # illuPercent = self.qLine.text()
         # illuPercent = float(illuPercent)
 

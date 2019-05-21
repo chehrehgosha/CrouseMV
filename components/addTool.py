@@ -16,7 +16,8 @@ class addTool(object):
         self.fileSystemModel.setNameFilters(["*.py"])
         self.fileSystemModel.setNameFilterDisables(False);
         #ACK how to give the a directory inside path
-        self.root = self.fileSystemModel.setRootPath(os.path.abspath(os.path.join(os.path.join(os.path.abspath(__file__),os.pardir),'..\Tools')))
+        # self.root = self.fileSystemModel.setRootPath(os.path.abspath(os.path.join(os.path.join(os.path.abspath(__file__),os.pardir),'..\Tools')))
+        self.root = self.fileSystemModel.setRootPath(os.path.join(os.path.join(os.path.abspath(__file__),os.pardir),'../Tools'))
         self.toolSelector.treeView.setModel(self.fileSystemModel)
         self.toolSelector.treeView.setRootIndex(self.root)
         self.toolSelector.treeView.hideColumn(1)
@@ -35,6 +36,9 @@ class addTool(object):
     def select(self):
         selectedNode = self.toolSelector.treeView.selectedIndexes()
         model = self.toolSelector.treeView.model()
+        if len(selectedNode) == 0:
+            self.toolSelectorDialog.close()
+            return
         selectedNodeModelIndex = selectedNode[0]
         selectedNodeAddress = model.filePath(selectedNodeModelIndex)
         index = selectedNodeAddress.rfind("/")

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import PyQt5
+import cv2
 from PyQt5.QtWidgets import QApplication, QMainWindow,QFileDialog,QDialog,QToolButton
 from PyQt5.QtGui import QPixmap,QIcon
 from PyQt5.QtCore import QTimer,QSize,Qt
@@ -11,6 +12,7 @@ from QtFiles.runscreen import Ui_Dialog as Ui_RunMode
 from components.runEngine import runEngine
 from multiprocessing import Process, Manager
 import importlib.util
+import os
 import globalVariables
 class Application():
     def __init__(self):
@@ -26,10 +28,10 @@ class Application():
         self.UI.SaveProgramButton.clicked.connect(self.save_program)
         self.UI.RunMode.clicked.connect(self.run_mode)
         self.UI.Exit_Button.clicked.connect(self.exit)
-        with open('stylesheet.qss', 'r') as file:
+        with open(os.path.abspath(os.path.join(os.path.abspath(__file__),os.pardir))+'/stylesheet.qss') as file:
             data = file.read()
         self.app.setStyleSheet(data)
-        image = QPixmap("images/CrouseLogo.png")
+        image = QPixmap(os.path.abspath(os.path.join(os.path.abspath(__file__),os.pardir))+"/images/CrouseLogo.png")
         image = image.scaled(self.UI.Logo.width(), self.UI.Logo.height(), Qt.KeepAspectRatio)
         self.UI.Logo.setPixmap(image)
         self.window.show()
@@ -62,6 +64,7 @@ class Application():
     def setup_mode(self):
         self.RunModeDialog.close()
     def exit(self):
+        cv2.destroyAllWindows()
         self.window.close()
     def runButton_clicked(self):
         toolRunnerInstance = Process(target=runEngine,args=(globalVariables.toolsListText,
@@ -134,7 +137,7 @@ class Application():
             for i in range(len(globalVariables.toolsListText)):
                 newButton = QToolButton()
                 newButton.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-                newButton.setIcon(QIcon('temp/icon.png'))
+                newButton.setIcon(QIcon(os.path.abspath(os.path.join(os.path.abspath(__file__),os.pardir))+'/temp/icon.png'))
                 newButton.setText(globalVariables.toolsListText[i]['toolType'])
                 newButton.index = i
                 newButton.clicked.connect(self.timeLineClicked)

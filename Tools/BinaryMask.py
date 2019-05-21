@@ -96,8 +96,7 @@ class Tool(object):
 
     def camera_source(self):
         self.BinaryMaskInit.close()
-        globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
-        globalVariables.guide_flag.value = 1
+
         Cam = Camera.Camera()
         Cam.setup_capture('temp/temp_image_for_contbri_tool.jpg')
         Cam.checkFile('temp/temp_image_for_contbri_tool.jpg')

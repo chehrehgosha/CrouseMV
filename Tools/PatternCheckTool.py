@@ -176,6 +176,7 @@ class Tool(object):
                 cv2.imwrite('temp/' + settings['output'], img)
                 cv2.imwrite(resultPath, img)
                 self.report =  '* * * * * * * * *\n Pattern\tStatus\tAccuracy\n '  + settings['pattern_name']+ ' \tFounded \t '+str("{0:.2f}".format(max_val))+'\n\n* * * * * * * * *\n'
+                #ACK How to store coordinates of a pattern or object.
                 self.out1 = top_left[0] + w/2
                 self.out2 = top_left[1] + h/2
                 ResultCode = 'globalVariables.'+ settings['pattern_name'] +' =[top_left[0] + w/2 , top_left[1] + h/2]'
@@ -260,8 +261,7 @@ class Tool(object):
         self.PatternCheckTool.close()
 
         if self.CameraCheckBox.isChecked() is True:
-            globalVariables.guide_value.value = 'Status:\nAdjust the Camera'
-            globalVariables.guide_flag.value = 1
+
             Cam = Camera.Camera()
             Cam.setup_capture('temp/' + self.TargetFile.text())
             Cam.checkFile('temp/' + self.TargetFile.text())
