@@ -9,7 +9,9 @@ class Tool(object):
                  index=None,
                  status='initialize',
                  resultPath = None,
-                 sourcePath = None):
+                 sourcePath = None,
+                 guide_value = None,
+                 guide_flag = None):
         if status=='initialize':
             self.PatternCheckTool = QDialog()
             self.mainLayout = QVBoxLayout()
@@ -141,8 +143,7 @@ class Tool(object):
             self.PatternCheckTool.exec()
 
         elif status == 'run':
-            globalVariables.guide_value.value = 'Status:\nRunning'
-            globalVariables.guide_flag.value = 1
+
             if settings['camera'] is True:
                 Cam = Camera.Camera()
                 Cam.run_capture('temp/'+settings['input'])
@@ -186,8 +187,7 @@ class Tool(object):
                 cv2.imwrite(resultPath, img)
                 self.report = '* * * * * * * * *\n Pattern\tStatus\n ' + settings[
                     'pattern_name'] + ' \tNot Found\n\n* * * * * * * * *\n'
-            globalVariables.guide_value.value = 'Status:\n -'
-            globalVariables.guide_flag.value = 1
+
 
 
     def toolModified(self):
@@ -264,7 +264,9 @@ class Tool(object):
 
             Cam = Camera.Camera()
             Cam.setup_capture('temp/' + self.TargetFile.text())
+            print('done')
             Cam.checkFile('temp/' + self.TargetFile.text())
+            print('donee')
         globalVariables.guide_value.value = 'Status:\n-'
         globalVariables.guide_flag.value = 1
         img = cv2.imread('temp/'+self.TargetFile.text())

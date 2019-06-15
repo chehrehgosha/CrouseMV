@@ -75,6 +75,8 @@ class Application():
                                                             globalVariables.report,
                                                             globalVariables.ChangeColorFlag,
                                                             globalVariables.ChangeColorIndex,
+                                                            globalVariables.guide_value,
+                                                            globalVariables.guide_flag,
                                                             'main_run'))
         toolRunnerInstance.start()
     def load_program(self):
@@ -124,6 +126,8 @@ class Application():
                                                                  globalVariables.report,
                                                                  globalVariables.ChangeColorFlag,
                                                                  globalVariables.ChangeColorIndex,
+                                                                 globalVariables.guide_value,
+                                                                 globalVariables.guide_flag,
                                                                  'pre_run'))
             toolRunnerInstance.start()
             while isinstance(self.UI.horizontalLayout.itemAt(0), PyQt5.QtWidgets.QWidgetItem):

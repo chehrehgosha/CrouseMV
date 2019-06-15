@@ -18,6 +18,8 @@ class runEngine():
                  report,
                  ChangeColorFlag,
                  ChangeColorIndex,
+                 guide_value,
+                 guide_flag,
                  status):
 
         # TemporaryVariables = {}
@@ -38,7 +40,9 @@ class runEngine():
                 alpha = selectedTool(setting,
                              status='run',
                              sourcePath= sourcePath.value,
-                             resultPath = resultPath.value)
+                             resultPath = resultPath.value,
+                                     guide_value = guide_value,
+                                     guide_flag = guide_flag)
                 report.value = report.value + alpha.report
                 cameraFlag.value = 1
                 reportFlag.value = 1
@@ -65,7 +69,9 @@ class runEngine():
                 _ = selectedTool(setting,
                              status='run',
                              sourcePath= sourcePath.value,
-                             resultPath = resultPath.value)
+                             resultPath = resultPath.value,
+                                     guide_value = guide_value,
+                                     guide_flag = guide_flag)
 
                 # cameraFlag.value = 1
                 time.sleep(2)

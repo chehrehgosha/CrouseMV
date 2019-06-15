@@ -10,7 +10,9 @@ class Tool(object):
                  index=None,
                  status='initialize',
                  sourcePath = None,
-                 resultPath = None):
+                 resultPath = None,
+                 guide_value = None,
+                 guide_flag = None):
 
         if status=='initialize':
             self.AngleMeasurementTool = QDialog()
@@ -127,8 +129,7 @@ class Tool(object):
             self.AngleMeasurementTool.exec()
         #TODO get yourself together
         elif status == 'run':
-            globalVariables.guide_value.value = 'Status:\nRunning'
-            globalVariables.guide_flag.value = 1
+
             if settings['camera'] is True:
                 Cam = Camera.Camera()
                 Cam.run_capture('temp/' + settings['input'])
@@ -176,8 +177,7 @@ class Tool(object):
                 self.report = '* * * * * * * * **\n Angle\t Status\n' + str("{0:.2f}".format(math.degrees(angle))) + ' \tNot Founded\n\n* * * * * * * * *\n'
             cv2.imwrite('temp/' + settings['output'], im)
             cv2.imwrite(resultPath, im)
-            globalVariables.guide_value.value = 'Status:\n -'
-            globalVariables.guide_flag.value = 1
+
 
 
     def toolModified(self):

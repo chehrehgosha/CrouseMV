@@ -42,6 +42,7 @@ class Camera:
         while (True):
             # print(os.getcwd()+'/'+target_address)
             x = os.path.exists(os.getcwd()+'/'+target_address)
+            print(os.getcwd()+'/'+target_address)
             # print(x)
             if x is True:
                 break
